@@ -28,10 +28,10 @@ public class Player extends GameObject {
     final int CROPPER_SIZE_X = 64;
     final int CROPPER_SIZE_Y = 128;
 
-    public Player(float x, float y, String name) {
+    public Player(float x, float y, String name, GameContainer gameContainer) {
         super(x, y, name);
         try {
-            init();
+            init(gameContainer);
         } catch (SlickException e) {
             e.printStackTrace();
         }
@@ -70,44 +70,29 @@ public class Player extends GameObject {
         if(input.isKeyDown(Input.KEY_LEFT)){
             currentAnimation = walkLeft;
          if(currentAnimation.isStopped()) currentAnimation.start();
-            // x gracz, fpositionX kamera
 
-            System.out.println("lewy: "+ x +" | "+fpositionX);
-            if(x <=700&& x >=0){
-                x -= delta * .2f;
-            }
-            else if(x >700&& x <1200){
-                x -= delta *.2f;
-                fpositionX += delta *.3f;
-            }
-            else if(x >=1200&& x <1724){
-                x -= delta *.2f;
-            }
+           if(x > 0)
+           x -= delta * 0.2f;
+           else x = 1;
 
-
-        }
+        }else
         if(input.isKeyDown(Input.KEY_RIGHT)){
             currentAnimation = walkRight;
 
         if(currentAnimation.isStopped()) currentAnimation.start();
 
-            System.out.println("prawy: "+ x +" | "+fpositionX);
-            if(x >=-2&& x <=700){
-                x += delta * .2f;
-                //fpositionX += delta *.1f;
-            }
-            else if(x >700&& x <1200){
-                x += delta *.2f;
-                fpositionX -= delta *.3f;
-            }
-            else if(x >=1200&& x <1722) {
-                x += delta * .2f;
-            }
+        if(x < gameContainer.getWidth())
+          x += delta * 0.2f;
+        else x = gameContainer.getWidth() - 1;
+        }
+        else {
+            currentAnimation = idle;
+            if(currentAnimation.isStopped()) currentAnimation.start();
         }
     }
 
     @Override
-    public void init() throws SlickException {
+    public void init(GameContainer gameContainer) throws SlickException {
         Image mainSheet = new Image("/res/textures/footballers/playerSpriteSheet.png");  // j r - j l -r r - r l - idle
 
         jumpRightSheet = new SpriteSheet(mainSheet.getSubImage(0,0,5 * CROPPER_SIZE_X, CROPPER_SIZE_Y),CROPPER_SIZE_X,CROPPER_SIZE_Y);

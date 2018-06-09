@@ -11,13 +11,14 @@ public class Ball extends GameObject{
 
     double lastBounce = 0;
     double vel = 1.5f;
-    int ballX, ballY;
-    int lowPosition = 870;
+    float ballX;
+    float ballY;
+    float lowPosition;
 
 
-    public Ball(String name) {
+    public Ball(String name, GameContainer gameContainer) {
         super(name);
-        init();
+        init(gameContainer);
 
     }
 
@@ -28,14 +29,15 @@ public class Ball extends GameObject{
     }
 
     @Override
-    public void init() {
+    public void init(GameContainer gameContainer) {
         try {
             ballImage = new Image("res/textures/ball.png").getScaledCopy(64,64);
         } catch (SlickException e) {
             e.printStackTrace();
         }
-        ballX = 600;
-        ballY = 200;
+        ballX = gameContainer.getWidth()/3;
+        ballY = gameContainer.getHeight() * 0.4f;
+        lowPosition = gameContainer.getHeight() * 0.8f;
     }
 
     @Override

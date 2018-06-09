@@ -16,6 +16,6 @@ public interface Entity {
 
     void update(int delta, GameContainer gameContainer);
 
-    void init() throws SlickException;
+    void init(GameContainer gameContainer) throws SlickException;
 
 }

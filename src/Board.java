@@ -26,8 +26,8 @@ public class Board extends BasicGameState{
     public void init(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
         background = new Image("/res/textures/board/football_pitch.png");
 
-        entities.add(new Ball("name"));
-        entities.add(new Player(100,700,"player1"));
+        entities.add(new Ball("name", gameContainer));
+        entities.add(new Player(gameContainer.getWidth()/4,gameContainer.getHeight()*0.7f,"player1",gameContainer));
     }
 
     @Override
