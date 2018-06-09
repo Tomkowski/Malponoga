@@ -119,6 +119,8 @@ public class Ball extends GameObject{
 
         ballX += velX;
 
+        velX -= Math.signum(velX) * 0.001f * delta;
+
         ballImage.rotate(velX);
 
 

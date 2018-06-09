@@ -15,6 +15,7 @@ public class Board extends BasicGameState{
 
 
     Image background;
+    Image net;
 
     List<GameObject> entities = new ArrayList<>();
 
@@ -26,7 +27,8 @@ public class Board extends BasicGameState{
 
     @Override
     public void init(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
-        background = new Image("/res/textures/board/football_pitch.png");
+        background = new Image("/res/textures/board/stadium.png");
+        net = new Image("/res/textures/board/net.png");
 
         entities.add(new Ball(gameContainer.getWidth()/3,gameContainer.getHeight() * 0.4f,"name", gameContainer));
         entities.add(new Player(gameContainer.getWidth()/4,64,"player1",gameContainer));
@@ -52,9 +54,12 @@ public class Board extends BasicGameState{
 
 
         g.drawImage(background.getScaledCopy(gc.getWidth(),gc.getHeight()),0 ,0);
-        g.drawString(entities.get(1).collidesWith(entities.get(0)) +"",entities.get(1).getX(),entities.get(1).getY() -100);
+         g.drawString(entities.get(1).collidesWith(entities.get(0)) +"",entities.get(1).getX(),entities.get(1).getY() -100);
 
         entities.forEach(e -> e.render(g));
+
+        g.drawImage(net.getScaledCopy(gc.getWidth(),gc.getHeight()),0 ,0);
+
     }
     @Override
     public void update(GameContainer gameContainer, StateBasedGame stateBasedGame, int delta) throws SlickException {
