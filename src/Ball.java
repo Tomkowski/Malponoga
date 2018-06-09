@@ -37,7 +37,7 @@ public class Ball {
     void move (int delta){
 
 
-        System.out.println(vel + " " + ballY);
+        //System.out.println(vel + " " + ballY);
 
 
         // go down
