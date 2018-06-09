@@ -13,11 +13,6 @@ public class Main  extends StateBasedGame
         super(name);
         this.addState(new Menu());
         this.addState(new Board());
-        //this.addState(new Level1("/res/maps/level1.tmx"));
-        //this.addState(new Level("/res/worlds/map4.tmx",1));
-        //this.addState(new Level("/res/worlds/map2.tmx",2));
-        //this.addState(new Level("/res/worlds/map3.tmx",3));
-        //this.addState(new Level("/res/worlds/map5.tmx",4));
 
     }
 
