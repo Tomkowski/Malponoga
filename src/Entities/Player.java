@@ -1,6 +1,7 @@
 package Entities;
 
 import org.newdawn.slick.*;
+import org.newdawn.slick.geom.Rectangle;
 
 public class Player extends GameObject {
 
@@ -26,25 +27,32 @@ public class Player extends GameObject {
     boolean jumping = false;
     boolean jumpable = true;
 
-    float lowPosition;
+
     float verSpeed = 0;
     float gravity = 0.5f;
     float jumpStrength = -12;
 
-    //float x =700;
-    float shiftY = 850;
-    float fpositionX = x - 700; /// na środku ma być uzależnić od danych użytkownika
-    float fpositionY =- 200; /// tu też
+
+    float playerX;
+    float playerY;
+
+    final float PLAYER_SPEED = 0.4f;
 
 
     final int CROPPER_SIZE_X = 64;
     final int CROPPER_SIZE_Y = 128;
 
+
+
     public Player(float x, float y, String name, GameContainer gameContainer) {
 
-        super(x, y, name);
 
-        lowPosition = y;
+        super(x, y, name, new Rectangle(x,y - 64,64,128));
+
+
+        playerX = x;
+
+        playerY = y;
 
         try {
             init(gameContainer);
@@ -55,12 +63,12 @@ public class Player extends GameObject {
 
     @Override
     public float getX() {
-        return x;
+        return playerX;
     }
 
     @Override
     public float getY() {
-        return y;
+        return playerY;
     }
 
     @Override
@@ -71,19 +79,26 @@ public class Player extends GameObject {
     @Override
     public void render(Graphics g){
 
-        g.translate((int)fpositionX,(int)fpositionY);
+
 
         if(currentAnimation != null)
-        g.drawAnimation(currentAnimation,x,y);
-        g.drawString("Pozycja piłkarza\n X: "+fpositionX+" Y:"+fpositionY,400,22);
+        g.drawAnimation(currentAnimation,playerX,playerY - 64);
+
+
+    //    g.fill(collisionBox);
+      //  g.setColor(Color.black);
+     //   g.drawString(getY() +" "+ StaticFields.lowPosition,playerX,playerY - 100);
 
     }
 
     @Override
     public void update(int delta , GameContainer gameContainer) {
+
+        collisionBox = new Rectangle(playerX,playerY - 64,64,128);
+
         Input input = gameContainer.getInput();
 
-        if(input.isKeyDown(Input.KEY_LEFT)){
+        if(input.isKeyDown(Input.KEY_A)){
             moveLeft = true;
             moveRight = false;
 
@@ -93,14 +108,14 @@ public class Player extends GameObject {
             if(currentAnimation.isStopped())
                 currentAnimation.start();
 
-           if(x > 0)
-                x -= delta * 0.2f;
+           if(playerX > 0)
+                playerX -= delta * PLAYER_SPEED;
            else
-               x = 1;
+               playerX = 0;
 
         }
 
-        else if(input.isKeyDown(Input.KEY_RIGHT)) {
+        else if(input.isKeyDown(Input.KEY_D)) {
             moveRight = true;
             moveLeft = false;
 
@@ -110,17 +125,17 @@ public class Player extends GameObject {
             if (currentAnimation.isStopped())
                 currentAnimation.start();
 
-            if (x < gameContainer.getWidth())
-                x += delta * 0.2f;
+            if (playerX < gameContainer.getWidth() - 64)
+                playerX += delta * PLAYER_SPEED;
             else
-                x = gameContainer.getWidth() - 1;
+                playerX = gameContainer.getWidth() - 64;
         }
 
 
         verSpeed += gravity;
 
 
-        if (input.isKeyDown(Input.KEY_UP) ){
+        if (input.isKeyDown(Input.KEY_W) ){
 
             if (jumpable){
                 jumping = true;
@@ -143,16 +158,16 @@ public class Player extends GameObject {
             }
         }
 
-        y += verSpeed;
+        playerY += verSpeed;
 
-        if (y > lowPosition){
+        if (playerY > StaticFields.lowPosition){
            // y = y - verSpeed;
-            y  = lowPosition;
+            playerY  = StaticFields.lowPosition;
             verSpeed = 0;
             jumping = false;
             jumpable = true;
 
-            if(!input.isKeyDown(Input.KEY_LEFT) && !input.isKeyDown(Input.KEY_RIGHT)){
+            if(!input.isKeyDown(Input.KEY_A) && !input.isKeyDown(Input.KEY_D)){
                 currentAnimation = idle;
                 if (currentAnimation.isStopped()) currentAnimation.start();
             }

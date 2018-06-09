@@ -45,7 +45,6 @@ public class Camera {
     public void update(GameContainer gc) {
 
         camX =  (int)gameObject.getX() - (gc.getWidth() / (StaticFields.cameraZoom * 2)); // scale * 2
-        System.out.println(camX);
 
         if(camX < 0) camX = 0;
 
@@ -59,8 +58,6 @@ public class Camera {
 
         if(camY >  gc.getHeight() * (  (1 - ( 1.0f / StaticFields.cameraZoom))))  camY =  gc.getHeight() * (  (1 - ( 1.0f / StaticFields.cameraZoom))); //weird formula I came up with to solve this problem
 
-
-        //      if(camY >  0) camY = 0;
     }
 
 }
