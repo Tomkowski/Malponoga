@@ -66,6 +66,7 @@ public class Player extends GameObject {
     @Override
     public void update(int delta , GameContainer gameContainer) {
         Input input = gameContainer.getInput();
+
         if(input.isKeyDown(Input.KEY_LEFT)){
             currentAnimation = walkLeft;
          if(currentAnimation.isStopped()) currentAnimation.start();
@@ -73,14 +74,14 @@ public class Player extends GameObject {
 
             System.out.println("lewy: "+ x +" | "+fpositionX);
             if(x <=700&& x >=0){
-                x -= delta * .3f;
+                x -= delta * .2f;
             }
             else if(x >700&& x <1200){
-                x -= delta *.3f;
+                x -= delta *.2f;
                 fpositionX += delta *.3f;
             }
             else if(x >=1200&& x <1724){
-                x -= delta *.3f;
+                x -= delta *.2f;
             }
 
 
@@ -92,15 +93,15 @@ public class Player extends GameObject {
 
             System.out.println("prawy: "+ x +" | "+fpositionX);
             if(x >=-2&& x <=700){
-                x += delta * .3f;
+                x += delta * .2f;
                 //fpositionX += delta *.1f;
             }
             else if(x >700&& x <1200){
-                x += delta *.3f;
+                x += delta *.2f;
                 fpositionX -= delta *.3f;
             }
             else if(x >=1200&& x <1722) {
-                x += delta * .3f;
+                x += delta * .2f;
             }
         }
     }
@@ -115,18 +116,19 @@ public class Player extends GameObject {
         walkLeftSheet = new SpriteSheet(mainSheet.getSubImage(0,CROPPER_SIZE_Y * 3,5 * CROPPER_SIZE_X, CROPPER_SIZE_Y),CROPPER_SIZE_X,CROPPER_SIZE_Y);
         idleSheet = new SpriteSheet(mainSheet.getSubImage(0,CROPPER_SIZE_Y * 4,5 * CROPPER_SIZE_X, CROPPER_SIZE_Y),CROPPER_SIZE_X,CROPPER_SIZE_Y);
 
-        int duration = 100;
+        int duration = 200;
         jumpRight = new Animation(jumpRightSheet,duration);
         jumpLeft = new Animation(jumpLeftSheet,duration);
         walkLeft = new Animation(walkLeftSheet,duration);
         walkRight = new Animation(walkRightSheet,duration);
         idle = new Animation(idleSheet,duration);
 
+        /*
         jumpRight.setPingPong(true);
         jumpLeft.setPingPong(true);
         walkRight.setPingPong(true);
         walkLeft.setPingPong(true);
-
+*/
         currentAnimation = idle;
        // if(currentAnimation == null) System.exit(-1);
     }
