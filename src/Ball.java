@@ -9,9 +9,8 @@ public class Ball {
     double lastBounce = 0;
     double vel = 1.5f;
     int ballX, ballY;
-    int lowPosition = 676;
+    int lowPosition = 870;
 
-    boolean falling = true;
 
     Ball() throws SlickException {
         ballImage = new Image("res/textures/ball.png").getScaledCopy(64,64);
@@ -37,9 +36,6 @@ public class Ball {
     void move (int delta){
 
 
-        //System.out.println(vel + " " + ballY);
-
-
         // go down
         ballY += vel;
 
@@ -52,8 +48,6 @@ public class Ball {
         // val > 0 because there was a loop
         if (ballY > lowPosition && vel > 0){
             vel = vel * -0.65f;
-            System.out.println("FLOOR");
-
 
             if (Math.abs(vel - lastBounce) < 0.05f)
                 vel = 0;
