@@ -14,11 +14,11 @@ public class Board extends BasicGameState{
     Ball ball;
 
     Image background;
-    Animation footballer1, movingUp, movingDown, movingLeft, movingRight;
+    Animation footballer1, movingLeft, movingRight;
     float shiftX=700;
     float shiftY=850;
     float fpositionX=shiftX-700; /// na środku ma być uzależnić od danych użytkownika
-    float fpositionY=-200; /// tu też
+        float fpositionY=-200; /// tu też
     int [] duration = {200,200}; //DURATION OF WHAT
 
     List<GameObject> entities = new ArrayList<>();
@@ -44,7 +44,7 @@ public class Board extends BasicGameState{
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
         //background.draw(shiftX,shiftY,1.2f);
         g.translate((int)fpositionX,(int)fpositionY);
-        g.drawImage(background.getScaledCopy(gc.getWidth(),gc.getHeight()),0 ,0);
+        g.drawImage(background,0 ,0);
         footballer1.draw(shiftX,shiftY);
         g.drawString("Pozycja piłkarza\n X: "+fpositionX+" Y:"+fpositionY,400,22);
 
