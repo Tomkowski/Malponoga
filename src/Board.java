@@ -39,37 +39,34 @@ public class Board extends BasicGameState{
     @Override
     public void update(GameContainer gameContainer, StateBasedGame stateBasedGame, int delta) throws SlickException {
         Input input = gameContainer.getInput();
+        float speed=.2f;
         if(input.isKeyDown(Input.KEY_LEFT)){
             footballer1 = movingLeft;
             // shiftX gracz, fpositionX kamera
-
-            System.out.println("lewy: "+shiftX+" | "+fpositionX);
             if(shiftX<=700&&shiftX>=0){
-                shiftX -= delta * .1f;
+                shiftX -= delta * speed;
             }
             else if(shiftX>700&&shiftX<1200){
-                shiftX -= delta *.1f;
-                fpositionX += delta *.1f;
+                shiftX -= delta *speed;
+                fpositionX += delta *speed;
             }
-            else if(shiftX>=1200&&shiftX<1724){
-                shiftX -= delta *.1f;
+            else if(shiftX>=1200&&shiftX<1730){
+                shiftX -= delta *speed;
             }
 
 
         }
         if(input.isKeyDown(Input.KEY_RIGHT)){
             footballer1 = movingRight;
-            System.out.println("prawy: "+shiftX+" | "+fpositionX);
-            if(shiftX>=-2&&shiftX<=700){
-                shiftX += delta * .1f;
-                //fpositionX += delta *.1f;
+            if(shiftX>=-10&&shiftX<=700){
+                shiftX += delta * speed;
             }
             else if(shiftX>700&&shiftX<1200){
-                shiftX += delta *.1f;
-                fpositionX -= delta *.1f;
+                shiftX += delta *speed;
+                fpositionX -= delta *speed;
             }
             else if(shiftX>=1200&&shiftX<1722) {
-                shiftX += delta * .1f;
+                shiftX += delta * speed;
             }
         }
     }
