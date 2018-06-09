@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ccba2a79-ad31-4497-8c9d-2443f9a82247" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/res/textures/board/football_pitch.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/textures/footballers/down1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/textures/footballers/left1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/textures/footballers/right1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/textures/footballers/up1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/bialjam18/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/bialjam18/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/bialjam18/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/bialjam18/Menu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,8 +30,8 @@
       <file leaf-file-name="Board.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
-              <caret line="36" column="41" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="41" />
+            <state relative-caret-position="187">
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -389,10 +379,18 @@
       <workItem from="1528482708971" duration="3082000" />
       <workItem from="1528494129489" duration="800000" />
     </task>
+    <task id="LOCAL-00001" summary="Dodana animacja postaci bez grafiki">
+      <created>1528531484576</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1528531484576</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23110000" />
+    <option name="totallyTimeSpent" value="32940000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
@@ -408,11 +406,11 @@
       <window_info anchor="right" id="Maven Projects" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="11" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3283582" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3283582" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info id="Capture Tool" order="13" />
       <window_info id="Designer" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24963397" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24963397" />
       <window_info anchor="right" id="Database" order="7" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32985073" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -455,6 +453,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Dodana animacja postaci bez grafiki" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dodana animacja postaci bez grafiki" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Main.java">
@@ -537,8 +539,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Board.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="36" column="41" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="41" />
+        <state relative-caret-position="187">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
