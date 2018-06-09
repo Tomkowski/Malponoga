@@ -18,18 +18,34 @@ public class Player extends GameObject {
 
     Animation currentAnimation;
 
+    boolean moveRight = false;
+    boolean moveLeft = false;
+    boolean jumpingRight = false;
+    boolean jumpingLeft = false;
 
-    float x =700;
-    float shiftY=850;
-    float fpositionX= x -700; /// na środku ma być uzależnić od danych użytkownika
-    float fpositionY=-200; /// tu też
+    boolean jumping = false;
+    boolean jumpable = true;
+
+    float lowPosition;
+    float verSpeed = 0;
+    float gravity = 0.5f;
+    float jumpStrength = -12;
+
+    //float x =700;
+    float shiftY = 850;
+    float fpositionX = x - 700; /// na środku ma być uzależnić od danych użytkownika
+    float fpositionY =- 200; /// tu też
 
 
     final int CROPPER_SIZE_X = 64;
     final int CROPPER_SIZE_Y = 128;
 
     public Player(float x, float y, String name, GameContainer gameContainer) {
+
         super(x, y, name);
+
+        lowPosition = y;
+
         try {
             init(gameContainer);
         } catch (SlickException e) {
@@ -68,28 +84,82 @@ public class Player extends GameObject {
         Input input = gameContainer.getInput();
 
         if(input.isKeyDown(Input.KEY_LEFT)){
-            currentAnimation = walkLeft;
-         if(currentAnimation.isStopped()) currentAnimation.start();
+            moveLeft = true;
+            moveRight = false;
+
+            if (!jumping)
+                currentAnimation = walkLeft;
+
+            if(currentAnimation.isStopped())
+                currentAnimation.start();
 
            if(x > 0)
-           x -= delta * 0.2f;
-           else x = 1;
+                x -= delta * 0.2f;
+           else
+               x = 1;
 
-        }else
-        if(input.isKeyDown(Input.KEY_RIGHT)){
-            currentAnimation = walkRight;
-
-        if(currentAnimation.isStopped()) currentAnimation.start();
-
-        if(x < gameContainer.getWidth())
-          x += delta * 0.2f;
-        else x = gameContainer.getWidth() - 1;
         }
-        else {
-            currentAnimation = idle;
-            if(currentAnimation.isStopped()) currentAnimation.start();
+
+        else if(input.isKeyDown(Input.KEY_RIGHT)) {
+            moveRight = true;
+            moveLeft = false;
+
+            if (!jumping)
+                currentAnimation = walkRight;
+
+            if (currentAnimation.isStopped())
+                currentAnimation.start();
+
+            if (x < gameContainer.getWidth())
+                x += delta * 0.2f;
+            else
+                x = gameContainer.getWidth() - 1;
         }
+
+
+        verSpeed += gravity;
+
+
+        if (input.isKeyDown(Input.KEY_UP) ){
+
+            if (jumpable){
+                jumping = true;
+                jumpable = false;
+                verSpeed = jumpStrength;
+
+                if (moveRight){
+                    currentAnimation = jumpRight;
+
+                    if(currentAnimation.isStopped())
+                        currentAnimation.start();
+                }
+
+                if (moveLeft){
+                    currentAnimation = jumpLeft;
+
+                    if(currentAnimation.isStopped())
+                        currentAnimation.start();
+                }
+            }
+        }
+
+        y += verSpeed;
+
+        if (y > lowPosition){
+           // y = y - verSpeed;
+            y  = lowPosition;
+            verSpeed = 0;
+            jumping = false;
+            jumpable = true;
+
+            if(!input.isKeyDown(Input.KEY_LEFT) && !input.isKeyDown(Input.KEY_RIGHT)){
+                currentAnimation = idle;
+                if (currentAnimation.isStopped()) currentAnimation.start();
+            }
+        }
+
     }
+
 
     @Override
     public void init(GameContainer gameContainer) throws SlickException {

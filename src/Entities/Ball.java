@@ -65,7 +65,7 @@ public class Ball extends GameObject{
     }
 
 
-    void move (int delta, GameContainer gameContainer){
+    private void move(int delta, GameContainer gameContainer){
 
 
         // go down

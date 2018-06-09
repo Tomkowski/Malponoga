@@ -27,7 +27,7 @@ public class Board extends BasicGameState{
         background = new Image("/res/textures/board/football_pitch.png");
 
         entities.add(new Ball("name", gameContainer));
-        entities.add(new Player(gameContainer.getWidth()/4,gameContainer.getHeight()*0.7f,"player1",gameContainer));
+        entities.add(new Player(gameContainer.getWidth()/4,gameContainer.getHeight()*0.96f,"player1",gameContainer));
     }
 
     @Override
