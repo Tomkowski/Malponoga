@@ -1,5 +1,8 @@
 import org.lwjgl.input.Mouse;
+import org.lwjgl.opengl.Display;
 import org.newdawn.slick.*;
+import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
@@ -46,7 +49,8 @@ public class Menu extends BasicGameState {
 
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
-        g.drawImage(background,0,0);
+        g.drawImage(background,0,0, Display.getWidth(), Display.getHeight(),
+                0,0,background.getWidth(), background.getHeight(),null);
         g.drawImage(hoverPlay(mouseX,mouseY),playBox.getX(),playBox.getY());
         g.drawImage(hoverExit(mouseX,mouseY),exitBox.getX(),exitBox.getY());
 

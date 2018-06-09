@@ -12,7 +12,8 @@ public class Main  extends StateBasedGame
     private final static int menu = 0;
     public Main(String name) throws SlickException {
         super(name);
-        this.addState(new Menu());
+        this.addState(new TestGame());
+        //this.addState(new Menu());
         //this.addState(new Intro());
         //this.addState(new Level1("/res/maps/level1.tmx"));
         //this.addState(new Level("/res/worlds/map4.tmx",1));
@@ -36,12 +37,20 @@ public class Main  extends StateBasedGame
             e.printStackTrace();
         }
         appgc.setTargetFrameRate(60);
-        //   appgc.setFullscreen(true);
         appgc.setShowFPS(true);
 
         DisplayMode[] modes = Display.getAvailableDisplayModes();
+        int w_max = 0, h_max = 0;
 
-        appgc.setDisplayMode(modes[0].getWidth(),modes[0].getHeight(), true);
+        for (DisplayMode v : modes){
+            if (v.getWidth() > w_max){
+                w_max = v.getWidth();
+                h_max = v.getHeight();
+            }
+        }
+
+       // appgc.setDisplayMode(modes[0].getWidth(),modes[0].getHeight(), true);
+        appgc.setDisplayMode(w_max, h_max,true);
 
         appgc.start();
 
