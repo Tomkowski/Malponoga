@@ -9,12 +9,10 @@ import org.newdawn.slick.state.StateBasedGame;
 public class Main  extends StateBasedGame
 {
     private static final String name = "Name of the game";
-    private final static int menu = 0;
     public Main(String name) throws SlickException {
         super(name);
-        this.addState(new TestGame());
-        //this.addState(new Menu());
-        //this.addState(new Intro());
+        this.addState(new Menu());
+        this.addState(new Board());
         //this.addState(new Level1("/res/maps/level1.tmx"));
         //this.addState(new Level("/res/worlds/map4.tmx",1));
         //this.addState(new Level("/res/worlds/map2.tmx",2));

@@ -35,22 +35,21 @@ public class Menu extends BasicGameState {
     @Override
     public void init(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
         background = new Image("/res/textures/menu/background.jpg");
-
         b_play = new Image("res/textures/menu/button_play.png");
         b_play_border = new Image("/res/textures/menu/button_play_border.png");
-        playBox = new Rectangle(gameContainer.getWidth()/6,gameContainer.getHeight()/3,b_play.getWidth(),b_play.getHeight());
+        playBox = new Rectangle(gameContainer.getWidth()/30,gameContainer.getHeight()/3,b_play.getWidth(), b_play.getHeight());
 
         b_exit = new Image("/res/textures/menu/button_exit.png");
         b_exit_border = new Image("/res/textures/menu/button_exit_border.png");
-        exitBox = new Rectangle(gameContainer.getWidth()/6,gameContainer.getHeight()/2,b_exit.getWidth(),b_exit.getHeight());
+        exitBox = new Rectangle(gameContainer.getWidth()/30,gameContainer.getHeight()/2,b_exit.getWidth(),b_exit.getHeight());
 
 
     }
 
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
-        g.drawImage(background,0,0, Display.getWidth(), Display.getHeight(),
-                0,0,background.getWidth(), background.getHeight(),null);
+        /*g.drawImage(background,0,0, Display.getWidth(), Display.getHeight(),
+                0,0,background.getWidth(), background.getHeight(),null);*/
         g.drawImage(hoverPlay(mouseX,mouseY),playBox.getX(),playBox.getY());
         g.drawImage(hoverExit(mouseX,mouseY),exitBox.getX(),exitBox.getY());
 
