@@ -1,5 +1,6 @@
 package Entities;
 
+import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
@@ -20,9 +21,9 @@ public class Ball extends GameObject{
 
     }
 
-    public void update (int delta){
+    public void update (int delta, GameContainer gameContainer){
         //if (ballImage != null)
-        move(delta);
+        move(delta, gameContainer);
 
     }
 
@@ -38,12 +39,12 @@ public class Ball extends GameObject{
     }
 
     @Override
-    public double getX() {
+    public float getX() {
         return ballX;
     }
 
     @Override
-    public double getY() {
+    public float getY() {
         return ballY;
     }
 
@@ -52,6 +53,7 @@ public class Ball extends GameObject{
         return name;
     }
 
+    @Override
     public void render(Graphics g){
 
         if (ballImage != null)
@@ -61,7 +63,7 @@ public class Ball extends GameObject{
     }
 
 
-    void move (int delta){
+    void move (int delta, GameContainer gameContainer){
 
 
         // go down

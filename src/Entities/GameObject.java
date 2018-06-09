@@ -4,12 +4,12 @@ import org.newdawn.slick.SlickException;
 
 public abstract class GameObject implements Entity {
 
-    protected double x;
-    protected double y;
+    protected float x;
+    protected float y;
 
     String name;
 
-    protected GameObject(double x, double y, String name) {
+    protected GameObject(float x, float y, String name) {
         this.x = x;
         this.y = y;
         this.name = name;
