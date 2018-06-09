@@ -35,12 +35,20 @@ public class Main  extends StateBasedGame
             e.printStackTrace();
         }
         appgc.setTargetFrameRate(60);
-        //   appgc.setFullscreen(true);
         appgc.setShowFPS(true);
 
         DisplayMode[] modes = Display.getAvailableDisplayModes();
-        System.out.println("asasaafsad"+appgc.getWidth()+" "+appgc.getHeight());
-        appgc.setDisplayMode(1366,768, true);
+        int w_max = 0, h_max = 0;
+
+        for (DisplayMode v : modes){
+            if (v.getWidth() > w_max){
+                w_max = v.getWidth();
+                h_max = v.getHeight();
+            }
+        }
+
+       // appgc.setDisplayMode(modes[0].getWidth(),modes[0].getHeight(), true);
+        appgc.setDisplayMode(w_max, h_max,true);
 
         appgc.start();
 

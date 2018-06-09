@@ -6,6 +6,8 @@ import org.newdawn.slick.state.StateBasedGame;
 public class Board extends BasicGameState{
 
 
+    Ball ball;
+
     Image background;
     Animation footballer1, movingUp, movingDown, movingLeft, movingRight;
     float shiftX=700;
@@ -26,6 +28,7 @@ public class Board extends BasicGameState{
         movingLeft = new Animation(walkleft, duration, false);
         movingRight = new Animation(walkright, duration, false);
         footballer1 = movingLeft;
+        ball = new Ball();
     }
 
     @Override
@@ -35,6 +38,7 @@ public class Board extends BasicGameState{
         g.drawImage(background,0 ,0);
         footballer1.draw(shiftX,shiftY);
         g.drawString("Pozycja piłkarza\n X: "+fpositionX+" Y:"+fpositionY,400,22);
+        ball.render(g);
     }
     @Override
     public void update(GameContainer gameContainer, StateBasedGame stateBasedGame, int delta) throws SlickException {
@@ -69,6 +73,8 @@ public class Board extends BasicGameState{
                 shiftX += delta * speed;
             }
         }
+
+        ball.update(delta);
     }
 
 }
