@@ -1,7 +1,12 @@
+import Entities.Ball;
+import Entities.GameObject;
+import javafx.scene.shape.Shape;
 import org.newdawn.slick.*;
-import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Board extends BasicGameState{
 
@@ -14,7 +19,9 @@ public class Board extends BasicGameState{
     float shiftY=850;
     float fpositionX=shiftX-700; /// na środku ma być uzależnić od danych użytkownika
     float fpositionY=-200; /// tu też
-    int [] duration = {200,200};
+    int [] duration = {200,200}; //DURATION OF WHAT
+
+    List<GameObject> entities = new ArrayList<>();
     @Override
     public int getID() {
         return 1;
@@ -28,17 +35,20 @@ public class Board extends BasicGameState{
         movingLeft = new Animation(walkleft, duration, false);
         movingRight = new Animation(walkright, duration, false);
         footballer1 = movingLeft;
-        ball = new Ball();
+
+
+        entities.add(new Ball("name"));
     }
 
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
         //background.draw(shiftX,shiftY,1.2f);
         g.translate((int)fpositionX,(int)fpositionY);
-        g.drawImage(background,0 ,0);
+        g.drawImage(background.getScaledCopy(gc.getWidth(),gc.getHeight()),0 ,0);
         footballer1.draw(shiftX,shiftY);
         g.drawString("Pozycja piłkarza\n X: "+fpositionX+" Y:"+fpositionY,400,22);
-        ball.render(g);
+
+        entities.forEach(e -> e.render(g));
     }
     @Override
     public void update(GameContainer gameContainer, StateBasedGame stateBasedGame, int delta) throws SlickException {
@@ -77,7 +87,7 @@ public class Board extends BasicGameState{
             }
         }
 
-        ball.update(delta);
+        entities.forEach(e -> e.update(delta));    // UPDATES ALL ENTIETIES.
     }
 
 }
