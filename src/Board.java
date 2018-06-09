@@ -87,7 +87,7 @@ public class Board extends BasicGameState{
             }
         }
 
-        entities.forEach(e -> e.update(delta));    // UPDATES ALL ENTIETIES.
+        entities.forEach(e -> e.update(delta));    // UPDATES ALL ENTITIES.
     }
 
 }

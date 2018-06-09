@@ -9,13 +9,13 @@ public abstract class GameObject implements Entity {
 
     String name;
 
-    public GameObject(double x, double y, String name) {
+    protected GameObject(double x, double y, String name) {
         this.x = x;
         this.y = y;
         this.name = name;
     }
 
-    private GameObject(String name){
+    protected GameObject(String name){
         this.name = name;
     }
 
