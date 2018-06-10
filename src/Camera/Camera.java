@@ -23,11 +23,10 @@ public class Camera {
     public Camera() {
 
         //Setting offset max's and minimums
-        offsetMaxX = 0 ;
+        offsetMaxX = 0;
         offsetMaxY = 0;
         offsetMinX = 0;
         offsetMinY = 0;
-
 
     }
 

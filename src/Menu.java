@@ -1,12 +1,14 @@
 import Entities.Ball;
 import Entities.CollisionHandler;
 import Entities.Player;
+import org.lwjgl.Sys;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.Display;
 import org.newdawn.slick.*;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.geom.Line;
+import org.newdawn.slick.geom.Point;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
@@ -24,15 +26,29 @@ public class Menu extends BasicGameState {
     Image b_play_border;
     Image b_exit;
     Image b_exit_border;
+    Image b_start_hover;
+
+    Image b_score_hover1, b_score_hover2, b_time_hover1, b_time_hover2;
+
+    Image b_score;
+    Image b_time;
+    Image b_start;
 
     Rectangle playBox;
     Rectangle exitBox;
+    Rectangle scoreBox;
+    Rectangle timeBox;
+    Rectangle startBox;
+
+    Rectangle up1, down1, up2, down2;
 
     CollisionHandler collisionHandler;
     CollisionHandler collisionHandler2;
     CollisionHandler collisionHandler3;
     CollisionHandler collisionHandler4;
     CollisionHandler collisionHandler5;
+
+    int timer = 0;
 
 
     Ball ball,ball1,ball2,ball3,ball4;
@@ -43,8 +59,15 @@ public class Menu extends BasicGameState {
     int mouseX;
     int mouseY;
 
+    int score_value = 0;
+    int time_value = 0;
+
     boolean exit_flag = false;
     boolean play_flag = false;
+    boolean started = false;
+    boolean fallen = false;
+
+
     @Override
     public int getID() {
         return 0;
@@ -52,6 +75,7 @@ public class Menu extends BasicGameState {
 
     @Override
     public void init(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
+
         background = new Image("/res/textures/board/stadium.png");
         b_play = new Image("res/textures/menu/button_play.png");
         b_play_border = new Image("/res/textures/menu/button_play_border.png");
@@ -60,6 +84,34 @@ public class Menu extends BasicGameState {
         b_exit = new Image("/res/textures/menu/button_exit.png");
         b_exit_border = new Image("/res/textures/menu/button_exit_border.png");
         exitBox = new Rectangle(gameContainer.getWidth()/30,gameContainer.getHeight()/2,gameContainer.getWidth()/2,b_exit.getHeight());
+
+        b_score = new Image("/res/textures/game_menu/b1.png");
+        b_time = new Image("/res/textures/game_menu/b2.png");
+        b_start = new Image("/res/textures/game_menu/button_start.png");
+        b_start_hover = new Image(("/res/textures/game_menu/button_start_hover.png"));
+
+        b_score_hover1 = new Image("/res/textures/game_menu/b1_hover_fst.png");
+        b_score_hover2 = new Image("/res/textures/game_menu/b1_hover_scd.png");
+        b_time_hover1 = new Image("/res/textures/game_menu/b2_hover_fst.png");
+        b_time_hover2 = new Image("/res/textures/game_menu/b2_hover_scd.png");
+
+        scoreBox = new Rectangle(gameContainer.getWidth()/3,gameContainer.getHeight()/2.3f,gameContainer.getWidth()/2, b_score.getHeight());
+        timeBox = new Rectangle(gameContainer.getWidth()/3,gameContainer.getHeight()/2,gameContainer.getWidth()/2, b_time.getHeight());
+        startBox = new Rectangle(gameContainer.getWidth()/3,gameContainer.getHeight()/1.76f,gameContainer.getWidth()/2, b_start.getHeight());
+
+
+        up1 = new Rectangle(scoreBox.getX() + 0.56f * scoreBox.getWidth(),
+                scoreBox.getY(), scoreBox.getHeight(), scoreBox.getHeight());
+
+        down1 = new Rectangle(scoreBox.getX() + 0.63f * scoreBox.getWidth(),
+                scoreBox.getY(), scoreBox.getHeight(), scoreBox.getHeight());
+
+        up2 = new Rectangle(timeBox.getX() + 0.56f * timeBox.getWidth(),
+                timeBox.getY(), timeBox.getHeight(), timeBox.getHeight());
+
+        down2 = new Rectangle(timeBox.getX() + 0.63f * timeBox.getWidth(),
+                timeBox.getY(), timeBox.getHeight(), timeBox.getHeight());
+
 
             ball = new Ball(gameContainer.getWidth()/1.9f , gameContainer.getHeight() /2f , "ball", gameContainer);
             ball1 = new Ball(gameContainer.getWidth()/1.8f , gameContainer.getHeight() /3.3f , "ball", gameContainer);
@@ -109,6 +161,62 @@ public class Menu extends BasicGameState {
         g.drawImage(hoverPlay(mouseX,mouseY),playBox.getX(),playBox.getY());
         g.drawImage(hoverExit(mouseX,mouseY),exitBox.getX(),exitBox.getY());
 
+        if (fallen){
+            g.drawImage(b_score, scoreBox.getX(), scoreBox.getY());
+            g.drawImage(b_time, timeBox.getX(), timeBox.getY());
+            g.drawImage(b_start, startBox.getX(), startBox.getY());
+            g.setColor(Color.white);
+            g.drawString(String.valueOf(score_value), scoreBox.getX() + 0.5f * scoreBox.getWidth(), scoreBox.getY() + 1/4f * scoreBox.getHeight());
+            g.drawString(String.valueOf(time_value), timeBox.getX() + 0.5f * scoreBox.getWidth(), timeBox.getY() + 1/4f * scoreBox.getHeight());
+
+
+            Point temp = new Point(Mouse.getX(),gc.getHeight() - Mouse.getY());
+
+            if (up1.contains(temp) || up1.intersects(temp) ){
+                g.drawImage(b_score_hover1, scoreBox.getX(), scoreBox.getY());
+                g.drawString(String.valueOf(score_value), scoreBox.getX() + 0.5f * scoreBox.getWidth(), scoreBox.getY() + 1/4f * scoreBox.getHeight());
+
+                if (gc.getInput().isMousePressed(0))
+                    if (score_value < 10)
+                        score_value++;
+            }
+
+            else if (down1.contains(temp) || down1.intersects(temp)){
+                g.drawImage(b_score_hover2, scoreBox.getX(), scoreBox.getY());
+                g.drawString(String.valueOf(score_value), scoreBox.getX() + 0.5f * scoreBox.getWidth(), scoreBox.getY() + 1/4f * scoreBox.getHeight());
+
+                if (gc.getInput().isMousePressed(0))
+                    if (score_value > 0)
+                        score_value--;
+            }
+
+            else if (up2.contains(temp) || up2.intersects(temp)){
+                g.drawImage(b_time_hover1, timeBox.getX(), timeBox.getY());
+                g.drawString(String.valueOf(time_value), timeBox.getX() + 0.5f * scoreBox.getWidth(), timeBox.getY() + 1/4f * scoreBox.getHeight());
+
+                if (gc.getInput().isMousePressed(0))
+                    if (time_value < 6)
+                        time_value++;
+            }
+
+            else if (down2.contains(temp) || down2.intersects(temp) ){
+                g.drawImage(b_time_hover2, timeBox.getX(), timeBox.getY());
+                g.drawString(String.valueOf(time_value), timeBox.getX() + 0.5f * scoreBox.getWidth(), timeBox.getY() + 1/4f * scoreBox.getHeight());
+
+                if (gc.getInput().isMousePressed(0))
+                    if (time_value > 0)
+                        time_value--;
+            }
+
+            else if (startBox.contains(temp) || startBox.intersects(temp)){
+                g.drawImage(b_start_hover, startBox.getX(), startBox.getY());
+
+                if (gc.getInput().isMousePressed(0))
+                    sbg.enterState(1);
+            }
+        }
+
+
 
     }
 
@@ -144,11 +252,22 @@ public class Menu extends BasicGameState {
     public void update(GameContainer gameContainer, StateBasedGame stateBasedGame, int delta) throws SlickException {
         Input input = gameContainer.getInput();
 
-        mouseX = input.getMouseY();
+        mouseX = input.getMouseX();
         mouseY = input.getMouseY();
 
         if(exit_flag && input.isMousePressed(0)) gameContainer.exit();
-        if(play_flag && input.isMousePressed(0)) stateBasedGame.enterState(1);
+        if(play_flag && input.isMousePressed(0)) {
+            started = true;
+        }
+
+        if (started){
+            playBox.setY(playBox.getY() + 10);
+            exitBox.setY(exitBox.getY() + 10);
+        }
+
+        if (playBox.getY() > gameContainer.getHeight())
+            fallen = true;
+
 
         ball.update(delta,gameContainer);
         ball1.update(delta,gameContainer);

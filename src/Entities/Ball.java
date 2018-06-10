@@ -22,7 +22,7 @@ public class Ball extends GameObject{
 
 
     public Ball(float x, float y, String name, GameContainer gameContainer) {
-        super(name, new Circle(x, y, 32));
+        super(name, new Circle(x, y, 16));
         this.x = x;
         this.y = y;
         init(gameContainer);
@@ -31,7 +31,7 @@ public class Ball extends GameObject{
 
     public void update (int delta, GameContainer gameContainer){
         //if (ballImage != null)
-        collisionBox = new Circle(ballX + 32, ballY + 32, 32);
+        collisionBox = new Circle(ballX + 16, ballY + 16, 16);
 
 
         move(delta, gameContainer);
@@ -63,7 +63,7 @@ public class Ball extends GameObject{
     @Override
     public void init(GameContainer gameContainer) {
         try {
-            ballImage = new Image("res/textures/ball.png").getScaledCopy(64,64);
+            ballImage = new Image("res/textures/ball.png").getScaledCopy(32,32);
         } catch (SlickException e) {
             e.printStackTrace();
         }
