@@ -43,12 +43,28 @@ public class Player extends GameObject {
     final int CROPPER_SIZE_Y = 128;
 
 
+    int jumpKey;
+    int leftKey;
+    int rightKey;
 
-    public Player(float x, float y, String name, GameContainer gameContainer) {
+
+
+    public Player(float x, float y, String name, GameContainer gameContainer, boolean wsad) {
 
 
         super(x, y, name, new Rectangle(x,y - 64,64,128));
 
+        if(wsad)
+        {
+            jumpKey = Input.KEY_W;
+            leftKey = Input.KEY_A;
+            rightKey = Input.KEY_D;
+        }
+        else{
+            jumpKey = Input.KEY_UP;
+            leftKey = Input.KEY_LEFT;
+            rightKey = Input.KEY_RIGHT;
+        }
 
         playerX = x;
 
@@ -98,7 +114,7 @@ public class Player extends GameObject {
 
         Input input = gameContainer.getInput();
 
-        if(input.isKeyDown(Input.KEY_A)){
+        if(input.isKeyDown(leftKey)){
             moveLeft = true;
             moveRight = false;
 
@@ -115,7 +131,7 @@ public class Player extends GameObject {
 
         }
 
-        else if(input.isKeyDown(Input.KEY_D)) {
+        else if(input.isKeyDown(rightKey)) {
             moveRight = true;
             moveLeft = false;
 
@@ -135,7 +151,7 @@ public class Player extends GameObject {
         verSpeed += gravity;
 
 
-        if (input.isKeyDown(Input.KEY_W) ){
+        if (input.isKeyDown(jumpKey )){
 
             if (jumpable){
                 jumping = true;

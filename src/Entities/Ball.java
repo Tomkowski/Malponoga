@@ -10,7 +10,6 @@ public class Ball extends GameObject{
 
     Image ballImage;
 
-    double lastBounce = 0;
     float velY = 0.4f;
     float velX;
     float ballX;
@@ -45,7 +44,7 @@ public class Ball extends GameObject{
                 return;
             case 1:
                 collisionFromRight = true;
-                velX = -8f;;
+                velX = -8f;
                 velY = -15f;
                 break;
             case -1:
@@ -128,51 +127,7 @@ public class Ball extends GameObject{
 
     }
 
-/*
-private void move(int delta, GameContainer gameContainer){
 
-
-
-        if(collisionFromRight){
-
-            if(collisionFromLeft) collisionFromLeft = false;
-
-
-
-
-            ballX += velX;
-            ballImage.rotate(velX);
-        }
-           // go down
-        ballY += velY;
-
-        if (velY != 0)
-            velY += 0.04f * delta;
-
-        if (velX != 0)
-            velX += 0.04f * delta;
-
-
-
-
-        // decrease vel when it touches the floor
-        // val > 0 because there was a loop
-        if (ballY >= StaticFields.lowPosition && velY > 0){
-            velY = velY * -0.65f;
-
-            if (Math.abs(velY - lastBounce) < 0.1f)
-                velY = 0;
-
-                if(collisionFromLeft) collisionFromLeft = false;
-
-                if(collisionFromRight) collisionFromRight = false;
-
-            lastBounce = velY;
-
-        }
-
-    }
- */
 
 
 }

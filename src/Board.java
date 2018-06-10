@@ -34,9 +34,11 @@ public class Board extends BasicGameState{
         net = new Image("/res/textures/board/net.png");
 
         entities.add(new Ball(gameContainer.getWidth()/3,gameContainer.getHeight() * 0.4f,"name", gameContainer));
-        entities.add(new Player(gameContainer.getWidth()/4,64,"player1",gameContainer));
+        entities.add(new Player(gameContainer.getWidth()/4,64,"player1",gameContainer, true));
 
-        collisionHandler = new CollisionHandler(new ArrayList<GameObject>() {{ add(entities.get(1));}},
+        entities.add(new Player(gameContainer.getWidth()/2,64,"player2",gameContainer,  false));
+
+        collisionHandler = new CollisionHandler(new ArrayList<GameObject>() {{ add(entities.get(1)); add(entities.get(2));}},
                 new Rectangle(gameContainer.getWidth()/20,686,150,300),new Rectangle(gameContainer.getWidth()/ 1.18f,686,150,300), (Ball) entities.get(0));
         camera = new Camera();
 
@@ -81,9 +83,13 @@ public class Board extends BasicGameState{
 
       result =  collisionHandler.checkForGoal(); // RETURNS 0 IF NO GOAL IS SCORED - 1 FOR LEFT - (-1) FOR RIGHT
 
-       StaticFields.cameraZoom = 2 - Math.abs(camera.getFocusObject().getX() - entities.get(0).getX()) / 1000;
+       StaticFields.cameraZoom = 2 - Math.abs(entities.get(2).getX() - entities.get(1).getX()) / 1000;
 
        if(StaticFields.cameraZoom < 1) StaticFields.cameraZoom = 1;
+
+
+        camera.focusOnPoint((entities.get(1).getX() + entities.get(2).getX())/2, (entities.get(1).getY() + entities.get(2).getY())/2);
+
 
     }
 

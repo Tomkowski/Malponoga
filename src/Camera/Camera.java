@@ -35,7 +35,7 @@ public class Camera {
     }
 
     public void focusOnPoint(float x, float y){
-        this.gameObject = new Player(x,y,"middle", null);
+        this.gameObject = new Player(x,y,"middle", null,true);
     }
 
     public GameObject getFocusObject(){
