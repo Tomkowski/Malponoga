@@ -2,6 +2,7 @@ import Camera.Camera;
 import Entities.*;
 import Entities.Ball;
 import org.newdawn.slick.*;
+import org.newdawn.slick.geom.Circle;
 import org.newdawn.slick.geom.Line;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.BasicGameState;
@@ -81,7 +82,7 @@ public class Board extends BasicGameState{
 
                 collisionHandler
                 = new CollisionHandler(new ArrayList<>() {{ add(entities.get(1)); add(entities.get(2));}},
-                leftGoal ,rightGoal ,leftBar,rightBar, (Ball) entities.get(0));
+                leftGoal ,rightGoal ,leftBar,rightBar, (Ball) entities.get(0),(Portal) entities.get(3));
 
 
         camera = new Camera();
@@ -126,9 +127,13 @@ public class Board extends BasicGameState{
         result =  collisionHandler.checkForGoal(); // RETURNS 0 IF NO GOAL IS SCORED - 1 FOR LEFT - (-1) FOR RIGHT
 
         if(result != 0){
-            reset(result, gameContainer);
+            reset(result, gameContainer,delta);
         }
-       StaticFields.cameraZoom = 2 - Math.abs(entities.get(2).getX() - entities.get(1).getX()) / 1000;
+        if(timer == 0){
+
+
+        camera.focusOnPoint((entities.get(1).getX() + entities.get(2).getX())/2, (entities.get(1).getY() + entities.get(2).getY())/2);
+        StaticFields.cameraZoom = 2 - Math.abs(entities.get(2).getX() - entities.get(1).getX()) / 1000;
 
        if(StaticFields.cameraZoom < 1) StaticFields.cameraZoom = 1;
 
@@ -137,21 +142,14 @@ public class Board extends BasicGameState{
 
         timeString = String.format("%02d:%02d", minutes, seconds);
 
-        camera.focusOnPoint((entities.get(1).getX() + entities.get(2).getX())/2, (entities.get(1).getY() + entities.get(2).getY())/2);
-
-
-        if (leftPlayerScore == StaticFields.maxPoints || (minutes == StaticFields.maxTime && leftPlayerScore > rightPlayerScore))
-            leftWin = true;
-        if (rightPlayerScore == StaticFields.maxPoints || (minutes == StaticFields.maxTime && rightPlayerScore > leftPlayerScore))
-            rightWin = true;
-        if (rightPlayerScore == leftPlayerScore && StaticFields.maxTime == minutes)
-            draw = true;
-
-
 
     }
 
-    private void reset(int result, GameContainer gameContainer){
+    private int timer = 0;
+
+    private void reset(int result, GameContainer gameContainer, int delta) throws SlickException {
+        timer += delta;
+
 
         if(result == 1){
             rightPlayerScore++;
@@ -163,15 +161,30 @@ public class Board extends BasicGameState{
             leftPlayerScore++;
         }
 
-        entities.get(0).setPosition(gameContainer.getHeight() * 0.5f , 64);
 
-        entities.get(1).setPosition(gameContainer.getWidth() /4 , entities.get(1).getY());
+            entities.get(0).setPosition(gameContainer.getHeight() * 0.5f, 64);
 
-        entities.get(2).setPosition(gameContainer.getWidth() /1.5f , entities.get(2).getY());
+            entities.get(1).setPosition(gameContainer.getWidth() / 4, entities.get(1).getY());
 
-         entities.get(0).setVelX((float) Math.random()*2 -1);
+            entities.get(2).setPosition(gameContainer.getWidth() / 1.5f, entities.get(2).getY());
 
+            entities.get(0).setVelX((float) (2 - Math.random() * 10 ));
+            entities.get(0).setVelX(4);
+
+             camera.focusOnPoint((entities.get(1).getX() + entities.get(2).getX())/2, (entities.get(1).getY() + entities.get(2).getY())/2);
+             StaticFields.cameraZoom = 2 - Math.abs(entities.get(2).getX() - entities.get(1).getX()) / 1000;
+            timer = 0;
+
+
+        } else {
+            entities.get(0).setVelX(Math.signum(entities.get(0).getVelX()) * 0.5f);
+            camera.focusOnEntity(entities.get(0));
+            StaticFields.cameraZoom = 5;
+        }
     }
+
+
+
 
     @Override
     public int getID() {
