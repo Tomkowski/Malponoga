@@ -15,6 +15,8 @@ import java.util.List;
 public class Board extends BasicGameState{
 
 
+    Music spectators;
+
     Image background;
     Image net;
     Image bground;
@@ -30,6 +32,7 @@ public class Board extends BasicGameState{
     Music sound;
     CollisionHandler collisionHandler;
 
+
     Camera camera;
 
 
@@ -39,7 +42,9 @@ public class Board extends BasicGameState{
     Line leftBar;
     Line rightBar;
 
-
+    boolean leftWin = false;
+    boolean rightWin = false;
+    boolean draw = false;
 
     int result;
     int leftPlayerScore = 0;
@@ -47,6 +52,9 @@ public class Board extends BasicGameState{
 
     @Override
     public void init(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
+        spectators = new Music("/res/sound/spectators.ogg");
+        spectators.play();
+
         background = new Image("/res/textures/board/stadium.png");
         net = new Image("/res/textures/board/net.png");
         bground = new Image("/res/textures/scoreboard/Bground.png");
@@ -58,7 +66,7 @@ public class Board extends BasicGameState{
 
 
 
-        sound= new Music("/res/sound/whistle/RefereeWhistle.wav");
+        //sound = new Music("/res/sound/whistle/RefereeWhistle.wav");
 
         float width150 = gameContainer.getWidth() / 14f;
         float height300 = gameContainer.getHeight() / 3.6f;
@@ -72,7 +80,7 @@ public class Board extends BasicGameState{
 
         rightBar = new Line(gameContainer.getWidth()/ 1.16f  , height686 * 0.9f,gameContainer.getWidth() / 1.16f + 2 * width150 * 0.9f ,height686 * 0.9f);
 
-/
+
                 collisionHandler
                 = new CollisionHandler(new ArrayList<>() {{ add(entities.get(1)); add(entities.get(2));}},
                 leftGoal ,rightGoal ,leftBar,rightBar, (Ball) entities.get(0));
@@ -101,7 +109,7 @@ public class Board extends BasicGameState{
         g.scale(1,1);
         g.drawImage(bground.getScaledCopy(1/StaticFields.cameraZoom), camera.camX, camera.camY);
         g.drawImage(tv.getScaledCopy(256,256).getScaledCopy(1/StaticFields.cameraZoom), camera.camX +gc.getWidth()/1.25f * (1/StaticFields.cameraZoom),camera.camY);
-        g.drawString(leftPlayerScore+":"+rightPlayerScore+"    "+timeString,camera.camX,camera.camY + 10);
+        g.drawString(leftPlayerScore+":"+rightPlayerScore+"    "+timeString,camera.camX,camera.camY);
 
 
     }
@@ -126,13 +134,21 @@ public class Board extends BasicGameState{
 
        if(StaticFields.cameraZoom < 1) StaticFields.cameraZoom = 1;
 
-        int hours = time/1000 / 3600;
         int minutes = (time/1000 % 3600) / 60;
         int seconds = time/1000 % 60;
 
-        timeString = String.format("%02d:%02d:%02d", hours, minutes, seconds);
+        timeString = String.format("%02d:%02d", minutes, seconds);
 
         camera.focusOnPoint((entities.get(1).getX() + entities.get(2).getX())/2, (entities.get(1).getY() + entities.get(2).getY())/2);
+
+
+        if (leftPlayerScore == StaticFields.maxPoints || (minutes == StaticFields.maxTime && leftPlayerScore > rightPlayerScore))
+            leftWin = true;
+        if (rightPlayerScore == StaticFields.maxPoints || (minutes == StaticFields.maxTime && rightPlayerScore > leftPlayerScore))
+            rightWin = true;
+        if (rightPlayerScore == leftPlayerScore && StaticFields.maxTime == minutes)
+            draw = true;
+
 
 
     }
@@ -141,10 +157,12 @@ public class Board extends BasicGameState{
 
         if(result == 1){
             rightPlayerScore++;
+            spectators.stop();
             sound.play();
         }
 
         else {
+            spectators.stop();
             sound.play();
             leftPlayerScore++;
         }

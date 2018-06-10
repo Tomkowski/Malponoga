@@ -1,6 +1,7 @@
 import Entities.Ball;
 import Entities.CollisionHandler;
 import Entities.Player;
+import Entities.StaticFields;
 import org.lwjgl.Sys;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.Display;
@@ -59,8 +60,8 @@ public class Menu extends BasicGameState {
     int mouseX;
     int mouseY;
 
-    int score_value = 0;
-    int time_value = 0;
+    int score_value = 1;
+    int time_value = 1;
 
     boolean exit_flag = false;
     boolean play_flag = false;
@@ -186,7 +187,7 @@ public class Menu extends BasicGameState {
                 g.drawString(String.valueOf(score_value), scoreBox.getX() + 0.5f * scoreBox.getWidth(), scoreBox.getY() + 1/4f * scoreBox.getHeight());
 
                 if (gc.getInput().isMousePressed(0))
-                    if (score_value > 0)
+                    if (score_value > 1)
                         score_value--;
             }
 
@@ -204,15 +205,20 @@ public class Menu extends BasicGameState {
                 g.drawString(String.valueOf(time_value), timeBox.getX() + 0.5f * scoreBox.getWidth(), timeBox.getY() + 1/4f * scoreBox.getHeight());
 
                 if (gc.getInput().isMousePressed(0))
-                    if (time_value > 0)
+                    if (time_value > 1)
                         time_value--;
             }
 
             else if (startBox.contains(temp) || startBox.intersects(temp)){
                 g.drawImage(b_start_hover, startBox.getX(), startBox.getY());
 
-                if (gc.getInput().isMousePressed(0))
+                if (gc.getInput().isMousePressed(0)){
+                    StaticFields.maxTime = time_value;
+                    StaticFields.maxPoints = score_value;
+
                     sbg.enterState(1);
+                }
+
             }
         }
 
