@@ -23,7 +23,10 @@ public class Board extends BasicGameState{
 
     Camera camera;
 
-    int result;
+    int result, recentResult;
+    int scoreHome, scoreAway;
+
+    boolean inGoal = false;
 
 
     @Override
@@ -47,8 +50,9 @@ public class Board extends BasicGameState{
 //      camera.focusOnPoint(Math.abs((entities.get(0).getX() + entities.get(1).getX())) / 2, StaticFields.lowPosition);
          camera.focusOnEntity(entities.get(0));
 
-
-
+         scoreAway = 0;
+         scoreHome = 0;
+         recentResult = 0;
 
 
     }
@@ -62,7 +66,6 @@ public class Board extends BasicGameState{
 
 
         g.drawImage(background.getScaledCopy(gc.getWidth(),gc.getHeight()),0 ,0);
-
 
 
         entities.forEach(e -> e.render(g));
@@ -86,6 +89,18 @@ public class Board extends BasicGameState{
         collisionHandler.checkForBar();
 
         result =  collisionHandler.checkForGoal(); // RETURNS 0 IF NO GOAL IS SCORED - 1 FOR LEFT - (-1) FOR RIGHT
+
+        if (result == 1 && recentResult == 0) {
+            scoreAway++;
+        }
+
+        else if (result == -1 && recentResult == 0){
+            scoreHome++;
+        }
+        recentResult = result;
+
+        //System.out.println(scoreHome + " " + scoreAway);
+
 
 
        StaticFields.cameraZoom = 2 - Math.abs(entities.get(2).getX() - entities.get(1).getX()) / 1000;
