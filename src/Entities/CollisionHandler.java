@@ -1,5 +1,6 @@
 package Entities;
 
+import org.newdawn.slick.geom.Line;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.geom.Shape;
 
@@ -11,14 +12,19 @@ public class CollisionHandler {
     Rectangle rightGoal;
     Rectangle leftGoal;
     Ball ball;
-    public CollisionHandler(List<GameObject> entities, Rectangle leftGoal, Rectangle rightGoal, Ball ball){
+    Line leftBar;
+    Line rightBar;
+    public CollisionHandler(List<GameObject> entities, Rectangle leftGoal, Rectangle rightGoal,Line leftBar,Line rightBar, Ball ball){
         this.entities = entities;
         this.leftGoal = leftGoal;
         this.rightGoal = rightGoal;
+        this.leftBar = leftBar;
+        this.rightBar = rightBar;
         this.ball = ball;
     }
 
     public void checkForCollisions() {
+
         for (GameObject e : entities) {
             if (e.collidesWith(ball)) {
                  if (e.getX() > ball.getX()) ball.callBack(1);
@@ -43,5 +49,19 @@ public class CollisionHandler {
 
     }
 
+    public void checkForBar(){
+
+        if(ball.collisionBox.intersects(leftBar)){
+            ball.callBack(-1);
+            return;
+        }
+
+        if(ball.collisionBox.intersects(rightBar)){
+            ball.callBack( 1);
+            return;
+        }
+
+        ball.callBack(0);
+    }
 
 }

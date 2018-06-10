@@ -124,10 +124,10 @@ public class Player extends GameObject {
             if(currentAnimation.isStopped())
                 currentAnimation.start();
 
-           if(playerX > 0)
+           if(playerX > 100)
                 playerX -= delta * PLAYER_SPEED;
            else
-               playerX = 0;
+               playerX = 100;
 
         }
 
@@ -141,10 +141,10 @@ public class Player extends GameObject {
             if (currentAnimation.isStopped())
                 currentAnimation.start();
 
-            if (playerX < gameContainer.getWidth() - 64)
+            if (playerX < gameContainer.getWidth() - 164)
                 playerX += delta * PLAYER_SPEED;
             else
-                playerX = gameContainer.getWidth() - 64;
+                playerX = gameContainer.getWidth() - 164;
         }
 
 
@@ -183,7 +183,7 @@ public class Player extends GameObject {
             jumping = false;
             jumpable = true;
 
-            if(!input.isKeyDown(Input.KEY_A) && !input.isKeyDown(Input.KEY_D)){
+            if(!input.isKeyDown(leftKey) && !input.isKeyDown(rightKey)){
                 currentAnimation = idle;
                 if (currentAnimation.isStopped()) currentAnimation.start();
             }

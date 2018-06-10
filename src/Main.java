@@ -8,7 +8,7 @@ import org.newdawn.slick.state.StateBasedGame;
 
 public class Main  extends StateBasedGame
 {
-    private static final String name = "Name of the game";
+    private static final String name = "Małponoga";
     public Main(String name) throws SlickException {
         super(name);
         this.addState(new Menu());
