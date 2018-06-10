@@ -16,6 +16,7 @@ public class Board extends BasicGameState{
 
     Image background;
     Image net;
+    Image scoreboard;
 
     List<GameObject> entities = new ArrayList<>();
 
@@ -34,13 +35,12 @@ public class Board extends BasicGameState{
     Line leftBar;
     Line rightBar;
 
-    int result;
-
 
     @Override
     public void init(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
         background = new Image("/res/textures/board/stadium.png");
         net = new Image("/res/textures/board/net.png");
+        scoreboard = new Image("/res/textures/scoreboard/Bground.png");
 
         entities.add(new Ball(gameContainer.getWidth()/3,gameContainer.getHeight() * 0.4f,"name", gameContainer));
         entities.add(new Player(gameContainer.getWidth()/4,64,"player1",gameContainer, true));
@@ -51,14 +51,14 @@ public class Board extends BasicGameState{
 
         float height300 = gameContainer.getHeight() / 3.6f;
 
-        float hieght686 = gameContainer.getHeight() / 1.57f;
+        float height686 = gameContainer.getHeight() / 1.57f;
 
-        leftGoal =  new Rectangle(gameContainer.getWidth()/20,hieght686,width150,height300);
-        rightGoal =  new Rectangle(gameContainer.getWidth()/ 1.18f,hieght686,width150,height300);
+        leftGoal =  new Rectangle(gameContainer.getWidth()/20,height686,width150,height300);
+        rightGoal =  new Rectangle(gameContainer.getWidth()/ 1.18f,height686,width150,height300);
 
-        leftBar = new Line(0,hieght686,gameContainer.getWidth()/20 + width150, hieght686);
+        leftBar = new Line(0,height686,gameContainer.getWidth()/20 + width150, height686);
 
-        rightBar = new Line(gameContainer.getWidth()/ 1.14f,hieght686,gameContainer.getWidth() / 1.16f + 2 * width150,hieght686);
+        rightBar = new Line(gameContainer.getWidth()/ 1.14f,height686,gameContainer.getWidth() / 1.16f + 2 * width150,height686);
 
 
                 collisionHandler
@@ -96,6 +96,10 @@ public class Board extends BasicGameState{
 
         g.drawImage(net.getScaledCopy(gc.getWidth(),gc.getHeight()),0 ,0);
 
+        g.drawImage(scoreboard, (camera.getFocusObject().getX() - 30) * StaticFields.cameraZoom,
+                (camera.getFocusObject().getY() - 30) * StaticFields.cameraZoom);
+        System.out.println(camera.camX + " " + camera.camY);
+
     }
     @Override
     public void update(GameContainer gameContainer, StateBasedGame stateBasedGame, int delta) throws SlickException {
@@ -121,7 +125,7 @@ public class Board extends BasicGameState{
         }
         recentResult = result;
 
-        //System.out.println(scoreHome + " " + scoreAway);
+        System.out.println(scoreHome + " " + scoreAway);
 
 
 

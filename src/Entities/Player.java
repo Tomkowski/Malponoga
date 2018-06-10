@@ -19,6 +19,8 @@ public class Player extends GameObject {
 
     Animation currentAnimation;
 
+    Image mainSheet;
+
     boolean moveRight = false;
     boolean moveLeft = false;
     boolean jumpingRight = false;
@@ -49,7 +51,7 @@ public class Player extends GameObject {
 
 
 
-    public Player(float x, float y, String name, GameContainer gameContainer, boolean wsad) {
+    public Player(float x, float y, String name, GameContainer gameContainer, boolean wsad) throws SlickException {
 
 
         super(x, y, name, new Rectangle(x,y - 64,64,128));
@@ -59,11 +61,15 @@ public class Player extends GameObject {
             jumpKey = Input.KEY_W;
             leftKey = Input.KEY_A;
             rightKey = Input.KEY_D;
+
+            mainSheet = new Image("/res/textures/footballers/playerSpriteSheet.png");
         }
         else{
             jumpKey = Input.KEY_UP;
             leftKey = Input.KEY_LEFT;
             rightKey = Input.KEY_RIGHT;
+
+            mainSheet = new Image("/res/textures/footballers/secondPlayerSpriteSheet.png");
         }
 
         playerX = x;
@@ -194,7 +200,7 @@ public class Player extends GameObject {
 
     @Override
     public void init(GameContainer gameContainer) throws SlickException {
-        Image mainSheet = new Image("/res/textures/footballers/playerSpriteSheet.png");  // j r - j l -r r - r l - idle
+          // j r - j l -r r - r l - idle
 
         jumpRightSheet = new SpriteSheet(mainSheet.getSubImage(0,0,5 * CROPPER_SIZE_X, CROPPER_SIZE_Y),CROPPER_SIZE_X,CROPPER_SIZE_Y);
         jumpLeftSheet = new SpriteSheet(mainSheet.getSubImage(0,CROPPER_SIZE_Y,5 * CROPPER_SIZE_X, CROPPER_SIZE_Y),CROPPER_SIZE_X,CROPPER_SIZE_Y);
