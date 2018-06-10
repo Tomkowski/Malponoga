@@ -3,7 +3,9 @@ import Entities.*;
 import Entities.Ball;
 import javafx.scene.shape.Shape;
 import org.lwjgl.Sys;
+import org.lwjgl.input.Mouse;
 import org.newdawn.slick.*;
+import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
@@ -23,6 +25,7 @@ public class Board extends BasicGameState{
 
     Camera camera;
 
+    int result;
 
 
     @Override
@@ -33,11 +36,12 @@ public class Board extends BasicGameState{
         entities.add(new Ball(gameContainer.getWidth()/3,gameContainer.getHeight() * 0.4f,"name", gameContainer));
         entities.add(new Player(gameContainer.getWidth()/4,64,"player1",gameContainer));
 
-        collisionHandler = new CollisionHandler(new ArrayList<GameObject>() {{ add(entities.get(1));}} , (Ball) entities.get(0));
+        collisionHandler = new CollisionHandler(new ArrayList<GameObject>() {{ add(entities.get(1));}},
+                new Rectangle(gameContainer.getWidth()/20,686,150,300),new Rectangle(gameContainer.getWidth()/ 1.18f,686,150,300), (Ball) entities.get(0));
         camera = new Camera();
 
 //        camera.focusOnPoint(Math.abs((entities.get(0).getX() + entities.get(1).getX())) / 2, StaticFields.lowPosition);
-         camera.focusOnEntity(entities.get(1));
+         camera.focusOnEntity(entities.get(1)); //1 for player 1; TODO change for the further one.
 
 
 
@@ -54,11 +58,14 @@ public class Board extends BasicGameState{
 
 
         g.drawImage(background.getScaledCopy(gc.getWidth(),gc.getHeight()),0 ,0);
-         g.drawString(entities.get(1).collidesWith(entities.get(0)) +"",entities.get(1).getX(),entities.get(1).getY() -100);
+       //  g.drawString(entities.get(1).collidesWith(entities.get(0)) +"",entities.get(1).getX(),entities.get(1).getY() -100);
 
         entities.forEach(e -> e.render(g));
 
+        //g.fill(new Rectangle(gc.getWidth()/20,686,150,300));
         g.drawImage(net.getScaledCopy(gc.getWidth(),gc.getHeight()),0 ,0);
+
+     //  g.drawString( result + "", entities.get(1).getX(),entities.get(1).getY());
 
     }
     @Override
@@ -71,6 +78,8 @@ public class Board extends BasicGameState{
         camera.update(gameContainer);
 
         collisionHandler.checkForCollisions();
+
+      result =  collisionHandler.checkForGoal(); // RETURNS 0 IF NO GOAL IS SCORED - 1 FOR LEFT - (-1) FOR RIGHT
 
        StaticFields.cameraZoom = 2 - Math.abs(camera.getFocusObject().getX() - entities.get(0).getX()) / 1000;
 
