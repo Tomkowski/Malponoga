@@ -26,6 +26,7 @@ public class CollisionHandler {
     public void checkForCollisions() {
 
         for (GameObject e : entities) {
+
             if (e.collidesWith(ball)) {
                  if (e.getX() > ball.getX()) ball.callBack(1);
                 else ball.callBack(-1);

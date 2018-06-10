@@ -18,4 +18,5 @@ public interface Entity {
 
     void init(GameContainer gameContainer) throws SlickException;
 
+    void setPosition(float x, float y);
 }

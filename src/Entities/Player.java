@@ -194,6 +194,7 @@ public class Player extends GameObject {
 
     @Override
     public void init(GameContainer gameContainer) throws SlickException {
+
         Image mainSheet = new Image("/res/textures/footballers/playerSpriteSheet.png");  // j r - j l -r r - r l - idle
 
         jumpRightSheet = new SpriteSheet(mainSheet.getSubImage(0,0,5 * CROPPER_SIZE_X, CROPPER_SIZE_Y),CROPPER_SIZE_X,CROPPER_SIZE_Y);
@@ -217,5 +218,11 @@ public class Player extends GameObject {
 */
         currentAnimation = idle;
        // if(currentAnimation == null) System.exit(-1);
+    }
+
+    @Override
+    public void setPosition(float x, float y) {
+        playerX= x;
+        playerY = y;
     }
 }

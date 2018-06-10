@@ -30,45 +30,43 @@ public class Board extends BasicGameState{
     Line leftBar;
     Line rightBar;
 
-    int result;
 
+
+    int result;
+    int leftPlayerScore = 0;
+    int rightPlayerScore = 0;
 
     @Override
     public void init(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
         background = new Image("/res/textures/board/stadium.png");
         net = new Image("/res/textures/board/net.png");
 
-        entities.add(new Ball(gameContainer.getWidth()/3,gameContainer.getHeight() * 0.4f,"name", gameContainer));
-        entities.add(new Player(gameContainer.getWidth()/4,64,"player1",gameContainer, true));
-        entities.add(new Player(gameContainer.getWidth()/2,64,"player2",gameContainer,  false));
+        entities.add(new Ball(gameContainer.getWidth()/3 ,gameContainer.getHeight() * 0.4f ,"name" , gameContainer));
+        entities.add(new Player(gameContainer.getWidth()/4 ,64,"player1" ,gameContainer, true));
+        entities.add(new Player(gameContainer.getWidth()/1.5f ,64,"player2" ,gameContainer,  false));
 
 
-        float width150 = gameContainer.getWidth() / 12.8f;
-
+        float width150 = gameContainer.getWidth() / 14f;
         float height300 = gameContainer.getHeight() / 3.6f;
+        float height686 = gameContainer.getHeight() / 1.4f;
 
-        float hieght686 = gameContainer.getHeight() / 1.57f;
+        leftGoal =  new Rectangle(gameContainer.getWidth()/23,height686,width150,height300);
 
-        leftGoal =  new Rectangle(gameContainer.getWidth()/20,hieght686,width150,height300);
-        rightGoal =  new Rectangle(gameContainer.getWidth()/ 1.18f,hieght686,width150,height300);
+        rightGoal =  new Rectangle(gameContainer.getWidth()/ 1.16f,height686,width150,height300);
 
-        leftBar = new Line(0,hieght686,gameContainer.getWidth()/20 + width150, hieght686);
+        leftBar = new Line(0,height686*0.9f,gameContainer.getWidth()/20 + width150 * 1.2f, height686 * 0.9f);
 
-        rightBar = new Line(gameContainer.getWidth()/ 1.14f,hieght686,gameContainer.getWidth() / 1.16f + 2 * width150,hieght686);
+        rightBar = new Line(gameContainer.getWidth()/ 1.16f  , height686 * 0.9f,gameContainer.getWidth() / 1.16f + 2 * width150 * 0.9f ,height686 * 0.9f);
 
 
                 collisionHandler
                 = new CollisionHandler(new ArrayList<>() {{ add(entities.get(1)); add(entities.get(2));}},
-                        leftGoal,rightGoal,leftBar,rightBar, (Ball) entities.get(0));
+                leftGoal ,rightGoal ,leftBar,rightBar, (Ball) entities.get(0));
 
 
         camera = new Camera();
-//      camera.focusOnPoint(Math.abs((entities.get(0).getX() + entities.get(1).getX())) / 2, StaticFields.lowPosition);
-         camera.focusOnEntity(entities.get(0));
 
-
-
-
+        camera.focusOnEntity(entities.get(0));
 
     }
 
@@ -79,18 +77,14 @@ public class Board extends BasicGameState{
 
         g.scale(StaticFields.cameraZoom,StaticFields.cameraZoom);
 
-
         g.drawImage(background.getScaledCopy(gc.getWidth(),gc.getHeight()),0 ,0);
-
-
 
         entities.forEach(e -> e.render(g));
 
-
-        g.draw(leftBar);
-        g.draw(rightBar);
-
         g.drawImage(net.getScaledCopy(gc.getWidth(),gc.getHeight()),0 ,0);
+
+
+
 
     }
     @Override
@@ -108,7 +102,9 @@ public class Board extends BasicGameState{
 
         result =  collisionHandler.checkForGoal(); // RETURNS 0 IF NO GOAL IS SCORED - 1 FOR LEFT - (-1) FOR RIGHT
 
-
+        if(result != 0){
+            reset(result, gameContainer);
+        }
        StaticFields.cameraZoom = 2 - Math.abs(entities.get(2).getX() - entities.get(1).getX()) / 1000;
 
        if(StaticFields.cameraZoom < 1) StaticFields.cameraZoom = 1;
@@ -116,6 +112,25 @@ public class Board extends BasicGameState{
 
         camera.focusOnPoint((entities.get(1).getX() + entities.get(2).getX())/2, (entities.get(1).getY() + entities.get(2).getY())/2);
 
+
+    }
+
+    private void reset(int result, GameContainer gameContainer){
+
+        if(result == 1)
+            rightPlayerScore++;
+
+        else
+            leftPlayerScore++;
+
+
+        entities.get(0).setPosition(gameContainer.getHeight() * 0.5f , 64);
+
+        entities.get(1).setPosition(gameContainer.getWidth() /4 , entities.get(1).getY());
+
+        entities.get(2).setPosition(gameContainer.getWidth() /1.5f , entities.get(2).getY());
+
+        ((Ball) entities.get(0)).setVelX((float) Math.random()*2 -1);
 
     }
 
