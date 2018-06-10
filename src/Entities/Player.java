@@ -1,5 +1,6 @@
 package Entities;
 
+import org.lwjgl.input.Mouse;
 import org.newdawn.slick.*;
 import org.newdawn.slick.geom.Rectangle;
 
@@ -15,7 +16,6 @@ public class Player extends GameObject {
     Animation jumpLeft;
     Animation jumpRight;
     Animation idle;
-
     Animation currentAnimation;
 
     Image mainSheet;
@@ -99,7 +99,6 @@ public class Player extends GameObject {
 
     @Override
     public void render(Graphics g){
-
 
 
         if(currentAnimation != null)

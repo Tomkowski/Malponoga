@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ccba2a79-ad31-4497-8c9d-2443f9a82247" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/res/sound/whistle/RefereeWhistle.wav" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entities/Ball.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entities/Ball.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entities/CollisionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entities/CollisionHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entities/Player.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -21,11 +20,22 @@
       <file leaf-file-name="Board.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="84" column="8" selection-start-line="84" selection-start-column="8" selection-end-line="84" selection-end-column="8" />
+            <state relative-caret-position="225">
+              <caret line="70" column="59" selection-start-line="70" selection-start-column="59" selection-end-line="70" selection-end-column="59" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#4976#4977#0" expanded="true" />
+                <element signature="e#5000#5001#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CollisionHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Entities/CollisionHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="67" selection-start-line="67" selection-end-line="67" />
             </state>
           </provider>
         </entry>
@@ -33,20 +43,46 @@
       <file leaf-file-name="Camera.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Camera/Camera.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-496">
-              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+            <state relative-caret-position="303">
+              <caret line="55" column="12" lean-forward="true" selection-start-line="55" selection-start-column="12" selection-end-line="55" selection-end-column="12" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="stadium.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/textures/board/stadium.png">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
       <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Entities/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+            <state relative-caret-position="544">
+              <caret line="149" column="9" lean-forward="true" selection-start-line="118" selection-start-column="8" selection-end-line="149" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Ball.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Entities/Ball.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="578">
+              <caret line="46" column="21" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StaticFields.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Entities/StaticFields.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -69,21 +105,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="football_pitch.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/textures/board/football_pitch.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file leaf-file-name="secondPlayerSpriteSheet.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/textures/footballers/secondPlayerSpriteSheet.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file leaf-file-name="ball.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/textures/ball.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
       <file leaf-file-name="Bground.png" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/textures/scoreboard/Bground.png">
           <provider selected="true" editor-type-id="images" />
@@ -102,6 +123,8 @@
     <findStrings>
       <find>ball</find>
       <find>colli</find>
+      <find>net</find>
+      <find>drawst</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -115,8 +138,8 @@
         <option value="$PROJECT_DIR$/src/Entities/GameObject.java" />
         <option value="$PROJECT_DIR$/src/Entities/Ball.java" />
         <option value="$PROJECT_DIR$/src/Entities/CollisionHandler.java" />
-        <option value="$PROJECT_DIR$/src/Entities/Player.java" />
         <option value="$PROJECT_DIR$/src/Entities/Bground.java" />
+        <option value="$PROJECT_DIR$/src/Entities/Player.java" />
         <option value="$PROJECT_DIR$/src/Board.java" />
       </list>
     </option>
@@ -174,6 +197,12 @@
               <item name="bialjam18" type="b2602c69:ProjectViewProjectNode" />
               <item name="bialjam18" type="462c0819:PsiDirectoryNode" />
               <item name="res" type="462c0819:PsiDirectoryNode" />
+              <item name="sound" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bialjam18" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bialjam18" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
               <item name="textures" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -182,34 +211,6 @@
               <item name="res" type="462c0819:PsiDirectoryNode" />
               <item name="textures" type="462c0819:PsiDirectoryNode" />
               <item name="board" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bialjam18" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bialjam18" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="textures" type="462c0819:PsiDirectoryNode" />
-              <item name="bonus" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bialjam18" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bialjam18" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="textures" type="462c0819:PsiDirectoryNode" />
-              <item name="footballers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bialjam18" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bialjam18" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="textures" type="462c0819:PsiDirectoryNode" />
-              <item name="menu" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bialjam18" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bialjam18" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="textures" type="462c0819:PsiDirectoryNode" />
-              <item name="scoreboard" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bialjam18" type="b2602c69:ProjectViewProjectNode" />
@@ -250,7 +251,11 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Lukas\IdeaProjects\bialjam18\res\sound\whistle" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Lukas\IdeaProjects\bialjam18\res\sound\whistle" />
       <recent name="C:\Users\Lukas\IdeaProjects\bialjam18\res\textures\bonus" />
       <recent name="C:\Users\Lukas\IdeaProjects\bialjam18\res\textures\board" />
       <recent name="C:\Users\Lukas\IdeaProjects\bialjam18\res\textures\footballers" />
@@ -453,7 +458,7 @@
       <updated>1528482704553</updated>
       <workItem from="1528482708971" duration="3082000" />
       <workItem from="1528494129489" duration="800000" />
-      <workItem from="1528599416534" duration="14472000" />
+      <workItem from="1528599416534" duration="21710000" />
     </task>
     <task id="LOCAL-00001" summary="Dodana animacja postaci bez grafiki">
       <created>1528531484576</created>
@@ -469,11 +474,18 @@
       <option name="project" value="LOCAL" />
       <updated>1528608508177</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="result bar">
+      <created>1528616541213</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1528616541213</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49997000" />
+    <option name="totallyTimeSpent" value="57235000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
@@ -519,10 +531,10 @@
     <MESSAGE value="Dodana animacja postaci bez grafiki" />
     <MESSAGE value="Minor update" />
     <MESSAGE value="Balanaga" />
-    <option name="LAST_COMMIT_MESSAGE" value="Balanaga" />
+    <MESSAGE value="result bar" />
+    <option name="LAST_COMMIT_MESSAGE" value="result bar" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/res/textures/board/football_pitch.jpg" />
     <entry file="file://$PROJECT_DIR$/res/textures/menu/background.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -552,6 +564,8 @@
           <caret line="45" column="39" lean-forward="true" selection-start-line="45" selection-start-column="39" selection-end-line="45" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#4976#4977#0" expanded="true" />
+            <element signature="e#5000#5001#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -635,6 +649,8 @@
           <caret line="52" column="45" selection-start-line="52" selection-start-column="45" selection-end-line="52" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#4976#4977#0" expanded="true" />
+            <element signature="e#5000#5001#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -710,23 +726,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entities/Ball.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-143">
-          <caret line="104" lean-forward="true" selection-start-line="104" selection-end-line="104" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entities/CollisionHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1071">
-          <caret line="67" selection-start-line="67" selection-end-line="67" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/textures/footballers/playerSpriteSheet.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -734,9 +733,6 @@
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/res/textures/bonus/portal.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/textures/board/stadium.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/res/textures/board/pitch_faded.png">
@@ -787,29 +783,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Camera/Camera.java">
+    <entry file="file://$PROJECT_DIR$/src/Entities/StaticFields.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-496">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entities/Player.java">
+    <entry file="file://$PROJECT_DIR$/src/Camera/Camera.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+        <state relative-caret-position="303">
+          <caret line="55" column="12" lean-forward="true" selection-start-line="55" selection-start-column="12" selection-end-line="55" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entities/Ball.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="46" column="21" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Board.java">
+    <entry file="file://$PROJECT_DIR$/src/Entities/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="84" column="8" selection-start-line="84" selection-start-column="8" selection-end-line="84" selection-end-column="8" />
+        <state relative-caret-position="544">
+          <caret line="149" column="9" lean-forward="true" selection-start-line="118" selection-start-column="8" selection-end-line="149" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/textures/board/stadium.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entities/CollisionHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="67" selection-start-line="67" selection-end-line="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Board.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="70" column="59" selection-start-line="70" selection-start-column="59" selection-end-line="70" selection-end-column="59" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4976#4977#0" expanded="true" />
+            <element signature="e#5000#5001#0" expanded="true" />
           </folding>
         </state>
       </provider>
