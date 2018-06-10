@@ -216,7 +216,9 @@ public class Player extends GameObject {
         walkRight.setPingPong(true);
         walkLeft.setPingPong(true);
 */
-        currentAnimation = idle;
+
+        currentAnimation = jumpRight;
+        currentAnimation.start();
        // if(currentAnimation == null) System.exit(-1);
     }
 
@@ -225,4 +227,5 @@ public class Player extends GameObject {
         playerX= x;
         playerY = y;
     }
-}
+
+   }

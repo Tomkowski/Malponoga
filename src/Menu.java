@@ -110,6 +110,7 @@ public class Menu extends BasicGameState {
         g.drawImage(hoverExit(mouseX,mouseY),exitBox.getX(),exitBox.getY());
 
 
+
     }
 
     private Image hoverPlay(int x, int y){
@@ -144,7 +145,7 @@ public class Menu extends BasicGameState {
     public void update(GameContainer gameContainer, StateBasedGame stateBasedGame, int delta) throws SlickException {
         Input input = gameContainer.getInput();
 
-        mouseX = input.getMouseY();
+        mouseX = input.getMouseX();
         mouseY = input.getMouseY();
 
         if(exit_flag && input.isMousePressed(0)) gameContainer.exit();

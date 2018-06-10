@@ -29,7 +29,7 @@ public class Main  extends StateBasedGame
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        appgc.setTargetFrameRate(60);
+       // appgc.setTargetFrameRate(60);
         appgc.setShowFPS(true);
 
         DisplayMode[] modes = Display.getAvailableDisplayModes();

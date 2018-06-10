@@ -2,9 +2,6 @@ package Entities;
 
 import org.newdawn.slick.*;
 import org.newdawn.slick.geom.Circle;
-import org.newdawn.slick.geom.Shape;
-
-import java.util.Random;
 
 public class Ball extends GameObject{
     Image ballImage;
@@ -81,6 +78,8 @@ public class Ball extends GameObject{
     public void setVelX(float x){
         velX = x;
     }
+
+
 
     @Override
     public float getX() {
