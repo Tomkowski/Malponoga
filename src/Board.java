@@ -81,8 +81,8 @@ public class Board extends BasicGameState{
 
 
                 collisionHandler
-                = new CollisionHandler(new ArrayList<>() {{ add(entities.get(1)); add(entities.get(2));}},
-                leftGoal ,rightGoal ,leftBar,rightBar, (Ball) entities.get(0),(Portal) entities.get(3));
+                = new CollisionHandler(new ArrayList<GameObject>() {{ add(entities.get(1)); add(entities.get(2));}},
+                leftGoal ,rightGoal ,leftBar,rightBar, (Ball) entities.get(0));
 
 
         camera = new Camera();
@@ -143,7 +143,7 @@ public class Board extends BasicGameState{
         timeString = String.format("%02d:%02d", minutes, seconds);
 
 
-    }
+    }}
 
     private int timer = 0;
 
@@ -151,6 +151,14 @@ public class Board extends BasicGameState{
         timer += delta;
 
 
+        if (timer > 2000) {
+            if (result == 1) {
+                rightPlayerScore++;
+                whistle.play();
+            } else {
+                whistle.play();
+                leftPlayerScore++;
+            }
         if(result == 1){
             rightPlayerScore++;
             whistle.play();
