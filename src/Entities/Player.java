@@ -25,7 +25,7 @@ public class Player extends GameObject {
     boolean jumpingLeft = false;
 
     boolean jumping = false;
-    boolean jumpable = true;
+    boolean jumpable = false;
 
 
     float verSpeed = 0;
