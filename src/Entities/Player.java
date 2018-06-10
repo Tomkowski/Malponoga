@@ -10,7 +10,6 @@ public class Player extends GameObject {
     SpriteSheet jumpLeftSheet;
     SpriteSheet jumpRightSheet;
     SpriteSheet idleSheet;
-
     Animation walkLeft;
     Animation walkRight;
     Animation jumpLeft;
@@ -38,7 +37,7 @@ public class Player extends GameObject {
     float playerX;
     float playerY;
 
-    final float PLAYER_SPEED = 0.4f;
+    float PLAYER_SPEED = 0.4f;
 
 
     final int CROPPER_SIZE_X = 64;
@@ -119,11 +118,9 @@ public class Player extends GameObject {
         collisionBox = new Rectangle(playerX,playerY - 64,64,128);
 
         Input input = gameContainer.getInput();
-
         if(input.isKeyDown(leftKey)){
             moveLeft = true;
             moveRight = false;
-
             if (!jumping)
                 currentAnimation = walkLeft;
 
@@ -207,7 +204,6 @@ public class Player extends GameObject {
         walkRightSheet = new SpriteSheet(mainSheet.getSubImage(0,CROPPER_SIZE_Y * 2,5 * CROPPER_SIZE_X, CROPPER_SIZE_Y),CROPPER_SIZE_X,CROPPER_SIZE_Y);
         walkLeftSheet = new SpriteSheet(mainSheet.getSubImage(0,CROPPER_SIZE_Y * 3,5 * CROPPER_SIZE_X, CROPPER_SIZE_Y),CROPPER_SIZE_X,CROPPER_SIZE_Y);
         idleSheet = new SpriteSheet(mainSheet.getSubImage(0,CROPPER_SIZE_Y * 4,5 * CROPPER_SIZE_X, CROPPER_SIZE_Y),CROPPER_SIZE_X,CROPPER_SIZE_Y);
-
         int duration = 200;
         jumpRight = new Animation(jumpRightSheet,duration);
         jumpLeft = new Animation(jumpLeftSheet,duration);

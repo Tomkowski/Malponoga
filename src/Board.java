@@ -1,12 +1,14 @@
 import Camera.Camera;
 import Entities.*;
 import Entities.Ball;
+import org.lwjgl.input.Mouse;
 import org.newdawn.slick.*;
 import org.newdawn.slick.geom.Line;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +18,9 @@ public class Board extends BasicGameState{
 
     Image background;
     Image net;
-
+    Image bground;
+    int bgroundX;
+    int bgroundY;
     List<GameObject> entities = new ArrayList<>();
 
     CollisionHandler collisionHandler;
@@ -40,11 +44,12 @@ public class Board extends BasicGameState{
     public void init(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
         background = new Image("/res/textures/board/stadium.png");
         net = new Image("/res/textures/board/net.png");
-
+        bground = new Image("/res/textures/scoreboard/Bground.png");
         entities.add(new Ball(gameContainer.getWidth()/3 ,gameContainer.getHeight() * 0.4f ,"name" , gameContainer));
         entities.add(new Player(gameContainer.getWidth()/4 ,64,"player1" ,gameContainer, true));
         entities.add(new Player(gameContainer.getWidth()/1.5f ,64,"player2" ,gameContainer,  false));
-
+        bgroundX=bground.getWidth();
+        bgroundY=bground.getHeight();
 
         float width150 = gameContainer.getWidth() / 14f;
         float height300 = gameContainer.getHeight() / 3.6f;
@@ -76,8 +81,9 @@ public class Board extends BasicGameState{
         g.translate( - StaticFields.cameraZoom * camera.camX ,- StaticFields.cameraZoom * camera.camY);
 
         g.scale(StaticFields.cameraZoom,StaticFields.cameraZoom);
-
         g.drawImage(background.getScaledCopy(gc.getWidth(),gc.getHeight()),0 ,0);
+        
+        g.drawImage(bground.getScaledCopy(bgroundX,bgroundY), camera.camX, camera.camY);
 
         entities.forEach(e -> e.render(g));
 

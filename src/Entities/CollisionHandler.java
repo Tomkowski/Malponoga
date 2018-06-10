@@ -14,6 +14,7 @@ public class CollisionHandler {
     Ball ball;
     Line leftBar;
     Line rightBar;
+
     public CollisionHandler(List<GameObject> entities, Rectangle leftGoal, Rectangle rightGoal,Line leftBar,Line rightBar, Ball ball){
         this.entities = entities;
         this.leftGoal = leftGoal;
@@ -64,5 +65,6 @@ public class CollisionHandler {
 
         ball.callBack(0);
     }
+
 
 }
