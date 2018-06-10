@@ -1,28 +1,25 @@
 package Entities;
 
-import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Image;
-import org.newdawn.slick.SlickException;
+import org.newdawn.slick.*;
 import org.newdawn.slick.geom.Circle;
+import org.newdawn.slick.geom.Shape;
+
+import java.util.Random;
 
 public class Ball extends GameObject{
-
     Image ballImage;
-
     float velY = 0.4f;
     float velX;
     float ballX;
     float ballY;
-
+    int time;
     boolean collisionFromRight = false;
     boolean collisionFromLeft = false;
 
 
 
-
     public Ball(float x, float y, String name, GameContainer gameContainer) {
-        super(name, new Circle(x, y, 16));
+        super(name, new Circle(x, y, 32));
         this.x = x;
         this.y = y;
         init(gameContainer);
@@ -31,7 +28,7 @@ public class Ball extends GameObject{
 
     public void update (int delta, GameContainer gameContainer){
         //if (ballImage != null)
-        collisionBox = new Circle(ballX + 16, ballY + 16, 16);
+        collisionBox = new Circle(ballX + 32, ballY + 32, 16);
 
 
         move(delta, gameContainer);
@@ -64,6 +61,7 @@ public class Ball extends GameObject{
     public void init(GameContainer gameContainer) {
         try {
             ballImage = new Image("res/textures/ball.png").getScaledCopy(32,32);
+
         } catch (SlickException e) {
             e.printStackTrace();
         }
@@ -105,7 +103,7 @@ public class Ball extends GameObject{
         if (ballImage != null)
             g.drawImage(ballImage, ballX, ballY);
 
-   //     g.fill(collisionBox);
+   //        g.fill(collisionBox);
 
     }
 
