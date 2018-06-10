@@ -15,15 +15,18 @@ import java.util.List;
 public class Board extends BasicGameState{
 
 
-    int helper=2;
     Image background;
     Image net;
     Image bground;
+    Image tv;
+
     int bgroundX;
     int bgroundY;
     int time;
+
     String timeString;
     List<GameObject> entities = new ArrayList<>();
+
     Music sound;
     CollisionHandler collisionHandler;
 
@@ -47,11 +50,14 @@ public class Board extends BasicGameState{
         background = new Image("/res/textures/board/stadium.png");
         net = new Image("/res/textures/board/net.png");
         bground = new Image("/res/textures/scoreboard/Bground.png");
+        tv = new Image("/res/textures/scoreboard/tv.png");
+
         entities.add(new Ball(gameContainer.getWidth()/3 ,gameContainer.getHeight() * 0.4f ,"name" , gameContainer));
         entities.add(new Player(gameContainer.getWidth()/4 ,64,"player1" ,gameContainer, true));
         entities.add(new Player(gameContainer.getWidth()/1.5f ,64,"player2" ,gameContainer,  false));
-        bgroundX=bground.getWidth();
-        bgroundY=bground.getHeight();
+
+
+
         sound= new Music("/res/sound/whistle/RefereeWhistle.wav");
 
         float width150 = gameContainer.getWidth() / 14f;
@@ -66,7 +72,7 @@ public class Board extends BasicGameState{
 
         rightBar = new Line(gameContainer.getWidth()/ 1.16f  , height686 * 0.9f,gameContainer.getWidth() / 1.16f + 2 * width150 * 0.9f ,height686 * 0.9f);
 
-
+/
                 collisionHandler
                 = new CollisionHandler(new ArrayList<>() {{ add(entities.get(1)); add(entities.get(2));}},
                 leftGoal ,rightGoal ,leftBar,rightBar, (Ball) entities.get(0));
@@ -86,12 +92,16 @@ public class Board extends BasicGameState{
         g.scale(StaticFields.cameraZoom,StaticFields.cameraZoom);
         g.drawImage(background.getScaledCopy(gc.getWidth(),gc.getHeight()),0 ,0);
 
-        g.drawImage(bground.getScaledCopy(bgroundX/2,bgroundY), camera.camX, camera.camY);
 
         entities.forEach(e -> e.render(g));
         g.drawImage(net.getScaledCopy(gc.getWidth(),gc.getHeight()),0 ,0);
-        g.drawString("\n"+leftPlayerScore+":"+rightPlayerScore+"    "+timeString,camera.camX+10,camera.camY+10);
 
+
+        g.translate(0,0);
+        g.scale(1,1);
+        g.drawImage(bground.getScaledCopy(1/StaticFields.cameraZoom), camera.camX, camera.camY);
+        g.drawImage(tv.getScaledCopy(256,256).getScaledCopy(1/StaticFields.cameraZoom), camera.camX +gc.getWidth()/1.25f * (1/StaticFields.cameraZoom),camera.camY);
+        g.drawString(leftPlayerScore+":"+rightPlayerScore+"    "+timeString,camera.camX,camera.camY + 10);
 
 
     }
@@ -145,7 +155,7 @@ public class Board extends BasicGameState{
 
         entities.get(2).setPosition(gameContainer.getWidth() /1.5f , entities.get(2).getY());
 
-        ((Ball) entities.get(0)).setVelX((float) Math.random()*2 -1);
+         entities.get(0).setVelX((float) Math.random()*2 -1);
 
     }
 
