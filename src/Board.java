@@ -23,6 +23,13 @@ public class Board extends BasicGameState{
 
     Camera camera;
 
+
+    Rectangle leftGoal;
+    Rectangle rightGoal;
+
+    Line leftBar;
+    Line rightBar;
+
     int result;
 
 
@@ -35,12 +42,24 @@ public class Board extends BasicGameState{
         entities.add(new Player(gameContainer.getWidth()/4,64,"player1",gameContainer, true));
         entities.add(new Player(gameContainer.getWidth()/2,64,"player2",gameContainer,  false));
 
-        collisionHandler
-                = new CollisionHandler(new ArrayList<GameObject>() {{ add(entities.get(1)); add(entities.get(2));}},
-                new Rectangle(gameContainer.getWidth()/20,686,150,300),new Rectangle(gameContainer.getWidth()/ 1.18f,686,150,300),
-                new Line(0,686,gameContainer.getWidth()/20 + 150,686),
-                new Line(gameContainer.getWidth()/ 1.18f,686,gameContainer.getWidth() / 1.18f + 300,686),
-                (Ball) entities.get(0));
+
+        float width150 = gameContainer.getWidth() / 12.8f;
+
+        float height300 = gameContainer.getHeight() / 3.6f;
+
+        float hieght686 = gameContainer.getHeight() / 1.57f;
+
+        leftGoal =  new Rectangle(gameContainer.getWidth()/20,hieght686,width150,height300);
+        rightGoal =  new Rectangle(gameContainer.getWidth()/ 1.18f,hieght686,width150,height300);
+
+        leftBar = new Line(0,hieght686,gameContainer.getWidth()/20 + width150, hieght686);
+
+        rightBar = new Line(gameContainer.getWidth()/ 1.14f,hieght686,gameContainer.getWidth() / 1.16f + 2 * width150,hieght686);
+
+
+                collisionHandler
+                = new CollisionHandler(new ArrayList<>() {{ add(entities.get(1)); add(entities.get(2));}},
+                        leftGoal,rightGoal,leftBar,rightBar, (Ball) entities.get(0));
 
 
         camera = new Camera();
@@ -68,6 +87,8 @@ public class Board extends BasicGameState{
         entities.forEach(e -> e.render(g));
 
 
+        g.draw(leftBar);
+        g.draw(rightBar);
 
         g.drawImage(net.getScaledCopy(gc.getWidth(),gc.getHeight()),0 ,0);
 
