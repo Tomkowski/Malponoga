@@ -72,7 +72,7 @@ public class Board extends BasicGameState{
 
         rightBar = new Line(gameContainer.getWidth()/ 1.16f  , height686 * 0.9f,gameContainer.getWidth() / 1.16f + 2 * width150 * 0.9f ,height686 * 0.9f);
 
-
+/
                 collisionHandler
                 = new CollisionHandler(new ArrayList<>() {{ add(entities.get(1)); add(entities.get(2));}},
                 leftGoal ,rightGoal ,leftBar,rightBar, (Ball) entities.get(0));
