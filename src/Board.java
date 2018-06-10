@@ -1,14 +1,12 @@
 import Camera.Camera;
 import Entities.*;
 import Entities.Ball;
-import org.lwjgl.input.Mouse;
 import org.newdawn.slick.*;
 import org.newdawn.slick.geom.Line;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +27,7 @@ public class Board extends BasicGameState{
     String timeString;
     List<GameObject> entities = new ArrayList<>();
 
-    Music sound;
+    Sound whistle;
     CollisionHandler collisionHandler;
 
 
@@ -66,7 +64,7 @@ public class Board extends BasicGameState{
 
 
 
-        //sound = new Music("/res/sound/whistle/RefereeWhistle.wav");
+        whistle = new Sound("/res/sound/whistle/RefereeWhistle.wav");
 
         float width150 = gameContainer.getWidth() / 14f;
         float height300 = gameContainer.getHeight() / 3.6f;
@@ -157,13 +155,11 @@ public class Board extends BasicGameState{
 
         if(result == 1){
             rightPlayerScore++;
-            spectators.stop();
-            sound.play();
+            whistle.play();
         }
 
         else {
-            spectators.stop();
-            sound.play();
+            whistle.play();
             leftPlayerScore++;
         }
 
