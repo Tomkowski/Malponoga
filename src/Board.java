@@ -3,6 +3,7 @@ import Entities.*;
 import Entities.Ball;
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.*;
+import org.newdawn.slick.geom.Circle;
 import org.newdawn.slick.geom.Line;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.BasicGameState;
@@ -32,6 +33,7 @@ public class Board extends BasicGameState{
 
     Camera camera;
 
+    Portal portal;
 
     Rectangle leftGoal;
     Rectangle rightGoal;
@@ -55,6 +57,7 @@ public class Board extends BasicGameState{
         entities.add(new Ball(gameContainer.getWidth()/3 ,gameContainer.getHeight() * 0.4f ,"name" , gameContainer));
         entities.add(new Player(gameContainer.getWidth()/4 ,64,"player1" ,gameContainer, true));
         entities.add(new Player(gameContainer.getWidth()/1.5f ,64,"player2" ,gameContainer,  false));
+        entities.add(new Portal(new Circle(20,20,64),gameContainer));
 
 
 
@@ -72,10 +75,10 @@ public class Board extends BasicGameState{
 
         rightBar = new Line(gameContainer.getWidth()/ 1.16f  , height686 * 0.9f,gameContainer.getWidth() / 1.16f + 2 * width150 * 0.9f ,height686 * 0.9f);
 
-/
+
                 collisionHandler
                 = new CollisionHandler(new ArrayList<>() {{ add(entities.get(1)); add(entities.get(2));}},
-                leftGoal ,rightGoal ,leftBar,rightBar, (Ball) entities.get(0));
+                leftGoal ,rightGoal ,leftBar,rightBar, (Ball) entities.get(0),(Portal) entities.get(3));
 
 
         camera = new Camera();
@@ -117,13 +120,20 @@ public class Board extends BasicGameState{
 
         collisionHandler.checkForBar();
 
+        collisionHandler.checkForPortal();
+
         result =  collisionHandler.checkForGoal(); // RETURNS 0 IF NO GOAL IS SCORED - 1 FOR LEFT - (-1) FOR RIGHT
 
         if(result != 0){
-            reset(result, gameContainer);
+            reset(result, gameContainer,delta);
         }
-       StaticFields.cameraZoom = 2 - Math.abs(entities.get(2).getX() - entities.get(1).getX()) / 1000;
+        if(timer == 0){
 
+
+        camera.focusOnPoint((entities.get(1).getX() + entities.get(2).getX())/2, (entities.get(1).getY() + entities.get(2).getY())/2);
+        StaticFields.cameraZoom = 2 - Math.abs(entities.get(2).getX() - entities.get(1).getX()) / 1000;
+
+        }
        if(StaticFields.cameraZoom < 1) StaticFields.cameraZoom = 1;
 
         int hours = time/1000 / 3600;
@@ -132,32 +142,48 @@ public class Board extends BasicGameState{
 
         timeString = String.format("%02d:%02d:%02d", hours, minutes, seconds);
 
-        camera.focusOnPoint((entities.get(1).getX() + entities.get(2).getX())/2, (entities.get(1).getY() + entities.get(2).getY())/2);
-
 
     }
 
-    private void reset(int result, GameContainer gameContainer){
+    private int timer = 0;
 
-        if(result == 1){
-            rightPlayerScore++;
-            sound.play();
+    private void reset(int result, GameContainer gameContainer, int delta) throws SlickException {
+        timer += delta;
+
+
+        if (timer > 2000) {
+            if (result == 1) {
+                rightPlayerScore++;
+                sound.play();
+            } else {
+                sound.play();
+                leftPlayerScore++;
+            }
+
+
+            entities.get(0).setPosition(gameContainer.getHeight() * 0.5f, 64);
+
+            entities.get(1).setPosition(gameContainer.getWidth() / 4, entities.get(1).getY());
+
+            entities.get(2).setPosition(gameContainer.getWidth() / 1.5f, entities.get(2).getY());
+
+            entities.get(0).setVelX((float) (2 - Math.random() * 10 ));
+            entities.get(0).setVelX(4);
+
+             camera.focusOnPoint((entities.get(1).getX() + entities.get(2).getX())/2, (entities.get(1).getY() + entities.get(2).getY())/2);
+             StaticFields.cameraZoom = 2 - Math.abs(entities.get(2).getX() - entities.get(1).getX()) / 1000;
+            timer = 0;
+
+
+        } else {
+            entities.get(0).setVelX(Math.signum(entities.get(0).getVelX()) * 0.5f);
+            camera.focusOnEntity(entities.get(0));
+            StaticFields.cameraZoom = 5;
         }
-
-        else {
-            sound.play();
-            leftPlayerScore++;
-        }
-
-        entities.get(0).setPosition(gameContainer.getHeight() * 0.5f , 64);
-
-        entities.get(1).setPosition(gameContainer.getWidth() /4 , entities.get(1).getY());
-
-        entities.get(2).setPosition(gameContainer.getWidth() /1.5f , entities.get(2).getY());
-
-         entities.get(0).setVelX((float) Math.random()*2 -1);
-
     }
+
+
+
 
     @Override
     public int getID() {
