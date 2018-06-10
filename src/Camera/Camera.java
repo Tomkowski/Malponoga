@@ -5,6 +5,7 @@ import Entities.Player;
 import Entities.StaticFields;
 import org.newdawn.slick.Game;
 import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.SlickException;
 
 
 public class Camera {
@@ -34,7 +35,7 @@ public class Camera {
      this.gameObject = gameObject;
     }
 
-    public void focusOnPoint(float x, float y){
+    public void focusOnPoint(float x, float y) throws SlickException {
         this.gameObject = new Player(x,y,"middle", null,true);
     }
 

@@ -26,6 +26,8 @@ public class Ball extends GameObject{
 
     public Ball(float x, float y, String name, GameContainer gameContainer) {
         super(name, new Circle(x, y, 32));
+        this.x = x;
+        this.y = y;
         init(gameContainer);
 
     }
@@ -76,11 +78,21 @@ public class Ball extends GameObject{
         } catch (SlickException e) {
             e.printStackTrace();
         }
-        ballX = gameContainer.getWidth()/3;
-        ballY = gameContainer.getHeight() * 0.4f;
+        ballX = x;
+        ballY = y;
         StaticFields.lowPosition = gameContainer.getHeight() * 0.8f;
 
 
+    }
+
+    @Override
+    public void setPosition(float x, float y) {
+        ballX = x;
+        ballY = y;
+    }
+
+    public void setVelX(float x){
+        velX = x;
     }
 
     @Override
