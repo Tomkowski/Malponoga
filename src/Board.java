@@ -123,5 +123,4 @@ public class Board extends BasicGameState{
     public int getID() {
         return 1;
     }
-
 }

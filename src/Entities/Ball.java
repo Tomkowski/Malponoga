@@ -1,15 +1,18 @@
 package Entities;
 
-import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Image;
-import org.newdawn.slick.SlickException;
+import org.newdawn.slick.*;
 import org.newdawn.slick.geom.Circle;
+import org.newdawn.slick.geom.Shape;
 
 public class Ball extends GameObject{
 
     Image ballImage;
-
+    Image portal;
+    Image sandals;
+    boolean port;
+    boolean sand;
+    Shape s_sandals;
+    Shape s_portals;
     float velY = 0.4f;
     float velX;
     float ballX;
@@ -30,8 +33,12 @@ public class Ball extends GameObject{
     public void update (int delta, GameContainer gameContainer){
         //if (ballImage != null)
         collisionBox = new Circle(ballX + 32, ballY + 32, 32);
-
-
+        if(collisionBox.intersects(s_sandals)){
+            sand=true;
+        }
+        if(collisionBox.intersects(s_portals)){
+            port=true;
+        }
         move(delta, gameContainer);
 
     }
@@ -62,6 +69,10 @@ public class Ball extends GameObject{
     public void init(GameContainer gameContainer) {
         try {
             ballImage = new Image("res/textures/ball.png").getScaledCopy(64,64);
+            portal = new Image("res/textures/bonus/portal.png").getScaledCopy(70,70);
+            sandals = new Image("res/textures/bonus/sandals.png").getScaledCopy(70,70);
+            s_portals = new Circle(900+35,135+500,35);
+            s_sandals = new Circle(800+33,179+400,20);
         } catch (SlickException e) {
             e.printStackTrace();
         }
@@ -92,8 +103,11 @@ public class Ball extends GameObject{
 
         if (ballImage != null)
             g.drawImage(ballImage, ballX, ballY);
+            if(sand!=true) {g.drawImage(sandals, 800, 150+400); g.draw(s_sandals);}
 
-   //     g.fill(collisionBox);
+            if(port!=true) {g.drawImage(portal, 900, 100+500); g.draw(s_portals);}
+        g.setColor(Color.blue);
+   //        g.fill(collisionBox);
 
     }
 

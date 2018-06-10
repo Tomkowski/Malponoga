@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ccba2a79-ad31-4497-8c9d-2443f9a82247" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/textures/bonus/portal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/textures/bonus/sandals.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/bialjam18/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/bialjam18/Board.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entities/Ball.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entities/Ball.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,7 +21,7 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-170">
+            <state relative-caret-position="17">
               <caret line="11" column="15" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -29,18 +30,43 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Board.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Board.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="46" column="37" lean-forward="true" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="37" />
+            <state relative-caret-position="-227">
+              <caret line="81" lean-forward="true" selection-start-line="81" selection-end-line="81" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#724#725#0" expanded="true" />
-                <element signature="e#748#749#0" expanded="true" />
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sandals.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/textures/bonus/sandals.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file leaf-file-name="ball.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/textures/ball.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file leaf-file-name="Ball.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Entities/Ball.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="164">
+              <caret line="106" lean-forward="true" selection-start-line="106" selection-end-line="106" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="portal.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/textures/bonus/portal.png">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
     </leaf>
@@ -61,6 +87,7 @@
         <option value="$PROJECT_DIR$/src/Menu.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/Board.java" />
+        <option value="$PROJECT_DIR$/src/Entities/Ball.java" />
       </list>
     </option>
   </component>
@@ -87,6 +114,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -128,6 +158,13 @@
               <item name="bialjam18" type="462c0819:PsiDirectoryNode" />
               <item name="res" type="462c0819:PsiDirectoryNode" />
               <item name="textures" type="462c0819:PsiDirectoryNode" />
+              <item name="bonus" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bialjam18" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bialjam18" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+              <item name="textures" type="462c0819:PsiDirectoryNode" />
               <item name="footballers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -144,15 +181,24 @@
             </path>
             <path>
               <item name="bialjam18" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bialjam18" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Camera" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bialjam18" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bialjam18" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Entities" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bialjam18" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -168,6 +214,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Lukas\IdeaProjects\bialjam18\res\textures\bonus" />
       <recent name="C:\Users\Lukas\IdeaProjects\bialjam18\res\textures\board" />
       <recent name="C:\Users\Lukas\IdeaProjects\bialjam18\res\textures\footballers" />
     </key>
@@ -186,9 +233,7 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/bialjam18/Board.class</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Board.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Entities/GameObject.java</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -362,6 +407,7 @@
       <updated>1528482704553</updated>
       <workItem from="1528482708971" duration="3082000" />
       <workItem from="1528494129489" duration="800000" />
+      <workItem from="1528599416534" duration="6470000" />
     </task>
     <task id="LOCAL-00001" summary="Dodana animacja postaci bez grafiki">
       <created>1528531484576</created>
@@ -374,63 +420,40 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35525000" />
+    <option name="totallyTimeSpent" value="41995000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info anchor="right" id="Palette" order="6" />
-      <window_info anchor="bottom" id="TODO" order="10" />
-      <window_info anchor="bottom" id="Messages" order="19" weight="0.3283582" />
-      <window_info anchor="right" id="Palette&#9;" order="15" />
-      <window_info id="Image Layers" order="7" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50073206" side_tool="true" visible="true" weight="0.3283582" />
-      <window_info anchor="right" id="Maven Projects" order="8" />
-      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="11" weight="0.32985073" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49926794" visible="true" weight="0.3283582" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info id="Capture Tool" order="13" />
-      <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24963397" />
-      <window_info anchor="right" id="Database" order="7" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32985073" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info id="UI Designer" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" id="Palette" order="9" />
-      <window_info id="Designer" order="8" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
-      <window_info anchor="right" id="Capture Analysis" order="10" />
-      <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.15704387" />
-      <window_info id="Structure" order="5" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="13" />
-      <window_info anchor="bottom" id="Database Changes" order="14" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="15" />
-      <window_info active="true" anchor="bottom" id="Run" order="4" visible="true" weight="0.328594" />
-      <window_info id="Image Layers" order="9" />
-      <window_info id="Capture Tool" order="10" />
-      <window_info id="UI Designer" order="11" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32985073" />
-      <window_info anchor="right" id="Theme Preview" order="11" />
-      <window_info anchor="right" id="Database" order="12" />
-      <window_info anchor="right" id="Palette&#9;" order="13" />
-      <window_info anchor="bottom" id="Terminal" order="16" />
-      <window_info anchor="bottom" id="Event Log" order="17" side_tool="true" />
-      <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
-      <window_info anchor="bottom" id="Debug" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Messages" order="18" weight="0.328594" />
+      <window_info anchor="right" id="Palette&#9;" order="13" />
+      <window_info id="Image Layers" order="9" />
+      <window_info anchor="right" id="Capture Analysis" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="17" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="14" />
+      <window_info anchor="bottom" id="Database Changes" order="14" show_stripe_button="false" />
+      <window_info active="true" anchor="bottom" id="Run" order="4" visible="true" weight="0.3283582" />
+      <window_info anchor="bottom" id="Version Control" order="15" />
+      <window_info anchor="bottom" id="Terminal" order="16" />
+      <window_info id="Capture Tool" order="10" />
+      <window_info id="Designer" order="8" />
+      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.1566618" />
+      <window_info anchor="right" id="Database" order="12" />
+      <window_info id="Structure" order="5" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info id="UI Designer" order="11" />
+      <window_info anchor="right" id="Theme Preview" order="11" />
+      <window_info anchor="bottom" id="Debug" order="5" weight="0.4" />
       <window_info id="Favorites" order="12" side_tool="true" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32985073" />
+      <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -445,18 +468,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Minor update" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/res/textures/menu/button_play.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/textures/menu/button_exit.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/textures/board/football_pitch.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/textures/menu/background.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Menu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1116">
@@ -483,8 +494,6 @@
           <caret line="52" column="45" selection-start-line="52" selection-start-column="45" selection-end-line="52" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#724#725#0" expanded="true" />
-            <element signature="e#748#749#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -568,8 +577,6 @@
           <caret line="45" column="39" lean-forward="true" selection-start-line="45" selection-start-column="39" selection-end-line="45" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#724#725#0" expanded="true" />
-            <element signature="e#748#749#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -653,8 +660,6 @@
           <caret line="52" column="45" selection-start-line="52" selection-start-column="45" selection-end-line="52" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#724#725#0" expanded="true" />
-            <element signature="e#748#749#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -706,22 +711,10 @@
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/res/textures/board/football_pitch.jpg" />
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-170">
-          <caret line="11" column="15" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/textures/board/football_pitch.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/textures/footballers/left1.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/res/textures/footballers/left1.png" />
     <entry file="file://$PROJECT_DIR$/res/textures/menu/background.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -737,12 +730,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Board.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="46" column="37" lean-forward="true" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="37" />
+        <state relative-caret-position="-227">
+          <caret line="81" lean-forward="true" selection-start-line="81" selection-end-line="81" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#724#725#0" expanded="true" />
-            <element signature="e#748#749#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="11" column="15" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/textures/bonus/portal.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/textures/bonus/sandals.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/textures/ball.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entities/Ball.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="106" lean-forward="true" selection-start-line="106" selection-end-line="106" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
