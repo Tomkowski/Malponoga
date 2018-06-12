@@ -1,7 +1,4 @@
-import Entities.Ball;
-import Entities.CollisionHandler;
-import Entities.Player;
-import Entities.StaticFields;
+import Entities.*;
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.*;
 import org.newdawn.slick.Graphics;
@@ -211,8 +208,8 @@ public class Menu extends BasicGameState {
                 g.drawImage(b_start_hover, startBox.getX(), startBox.getY());
 
                 if (gc.getInput().isMousePressed(0)){
-                    StaticFields.maxTime = time_value;
-                    StaticFields.maxPoints = score_value;
+                    Score.maxTime = time_value;
+                    Score.maxPoints = score_value;
 
                     sbg.enterState(1);
                 }

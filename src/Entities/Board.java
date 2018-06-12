@@ -48,8 +48,6 @@ public class Board extends BasicGameState{
     boolean draw = false;
 
     int result;
-    int leftPlayerScore = 0;
-    int rightPlayerScore = 0;
 
     @Override
     public void init(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
@@ -110,7 +108,10 @@ public class Board extends BasicGameState{
         g.scale(1,1);
         g.drawImage(bground.getScaledCopy(1/StaticFields.cameraZoom), camera.camX, camera.camY);
         g.drawImage(tv.getScaledCopy(256,256).getScaledCopy(1/StaticFields.cameraZoom), camera.camX +gc.getWidth()/1.25f * (1/StaticFields.cameraZoom),camera.camY);
-        g.drawString(leftPlayerScore+":"+rightPlayerScore+"    "+timeString,camera.camX,camera.camY);
+        g.drawString(Score.homePoints + ":" + Score.awayPoints +"    " + timeString, camera.camX, camera.camY);
+
+        g.setColor(Color.orange);
+        g.draw(rightGoal);
 
 
     }
@@ -155,11 +156,11 @@ public class Board extends BasicGameState{
 
         if (timer > 2000) {
             if (result == 1) {
-                rightPlayerScore++;
+                Score.awayPoints++;
                 whistle.play();
             } else {
                 whistle.play();
-                leftPlayerScore++;
+                Score.homePoints++;
             }
 
 
