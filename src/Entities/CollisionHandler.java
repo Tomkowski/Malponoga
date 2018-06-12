@@ -25,7 +25,7 @@ public class CollisionHandler {
     }
 
     public void checkForCollisions() {
-
+    if(Board.timer > 0) return;
         for (GameObject e : entities) {
 
             if (e.collidesWith(ball)) {

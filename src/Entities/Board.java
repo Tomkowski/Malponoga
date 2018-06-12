@@ -1,3 +1,5 @@
+package Entities;
+
 import Camera.Camera;
 import Entities.*;
 import Entities.Ball;
@@ -52,7 +54,7 @@ public class Board extends BasicGameState{
     @Override
     public void init(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
         spectators = new Music("/res/sound/spectators.ogg");
-        spectators.play();
+        spectators.loop();
 
         background = new Image("/res/textures/board/stadium.png");
         net = new Image("/res/textures/board/net.png");
@@ -73,7 +75,7 @@ public class Board extends BasicGameState{
 
         leftGoal =  new Rectangle(gameContainer.getWidth()/23,height686,width150,height300);
 
-        rightGoal =  new Rectangle(gameContainer.getWidth()/ 1.16f,height686,width150,height300);
+        rightGoal =  new Rectangle(gameContainer.getWidth()/ 1.11f,height686,width150,height300);
 
         leftBar = new Line(0,height686*0.9f,gameContainer.getWidth()/20 + width150 * 1.2f, height686 * 0.9f);
 
@@ -145,7 +147,7 @@ public class Board extends BasicGameState{
 
     }}
 
-    private int timer = 0;
+    public static int timer = 0;
 
     private void reset(int result, GameContainer gameContainer, int delta) throws SlickException {
         timer += delta;
@@ -159,15 +161,7 @@ public class Board extends BasicGameState{
                 whistle.play();
                 leftPlayerScore++;
             }
-        if(result == 1){
-            rightPlayerScore++;
-            whistle.play();
-        }
 
-        else {
-            whistle.play();
-            leftPlayerScore++;
-        }
 
 
             entities.get(0).setPosition(gameContainer.getHeight() * 0.5f, 64);
@@ -176,16 +170,16 @@ public class Board extends BasicGameState{
 
             entities.get(2).setPosition(gameContainer.getWidth() / 1.5f, entities.get(2).getY());
 
-            entities.get(0).setVelX((float) (2 - Math.random() * 10 ));
-            entities.get(0).setVelX(4);
+
 
              camera.focusOnPoint((entities.get(1).getX() + entities.get(2).getX())/2, (entities.get(1).getY() + entities.get(2).getY())/2);
              StaticFields.cameraZoom = 2 - Math.abs(entities.get(2).getX() - entities.get(1).getX()) / 1000;
+             entities.get(0).setVelX((float) (15 - Math.random() * 30));
             timer = 0;
 
 
         } else {
-            entities.get(0).setVelX(Math.signum(entities.get(0).getVelX()) * 0.5f);
+            entities.get(0).setVelX(Math.signum(entities.get(0).getVelX()) * 2.5f);
             camera.focusOnEntity(entities.get(0));
             StaticFields.cameraZoom = 5;
         }

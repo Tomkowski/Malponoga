@@ -1,3 +1,4 @@
+import Entities.Board;
 import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
@@ -30,7 +31,7 @@ public class Main  extends StateBasedGame
             e.printStackTrace();
         }
        // appgc.setTargetFrameRate(60);
-        appgc.setShowFPS(true);
+       // appgc.setShowFPS(true);
 
         DisplayMode[] modes = Display.getAvailableDisplayModes();
         int w_max = 0, h_max = 0;

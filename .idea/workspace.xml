@@ -1,25 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="bialjam18:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="ccba2a79-ad31-4497-8c9d-2443f9a82247" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/bialjam18_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/bialjam18/Board$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/bialjam18/Board$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/bialjam18/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/bialjam18/Board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/bialjam18/Entities/Ball.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/bialjam18/Entities/Ball.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/bialjam18/Entities/CollisionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/bialjam18/Entities/CollisionHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/bialjam18/Entities/GameObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/bialjam18/Entities/GameObject.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/bialjam18/Entities/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/bialjam18/Entities/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/bialjam18/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/bialjam18/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/bialjam18/Menu$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/bialjam18/Menu$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/bialjam18/Menu$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/bialjam18/Menu$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/bialjam18/Menu$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/bialjam18/Menu$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/bialjam18/Menu$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/bialjam18/Menu$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/bialjam18/Menu$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/bialjam18/Menu$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/bialjam18/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/bialjam18/Menu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/bialjam18/Entities/StaticFields.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/bialjam18/Entities/StaticFields.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entities/StaticFields.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entities/StaticFields.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,10 +26,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
+            <state relative-caret-position="88">
               <caret line="30" column="9" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -43,11 +38,43 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Board.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="bialjam18.iml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bialjam18.iml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MANIFEST.MF" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/out/production/bialjam18/MANIFEST.MF">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="Main.class" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/out/production/bialjam18/Main.class">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="Board.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="426">
-              <caret line="165" column="24" selection-start-line="165" selection-start-column="24" selection-end-line="165" selection-end-column="24" />
+            <state relative-caret-position="-1622">
+              <caret line="83" column="64" selection-start-line="83" selection-start-column="64" selection-end-line="83" selection-end-column="64" />
+              <folding>
+                <element signature="e#6227#6228#0" expanded="true" />
+                <element signature="e#6251#6252#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CollisionHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Entities/CollisionHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="23" column="25" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -108,15 +135,15 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/Entities/GameObject.java" />
         <option value="$PROJECT_DIR$/src/Entities/Ball.java" />
-        <option value="$PROJECT_DIR$/src/Entities/CollisionHandler.java" />
         <option value="$PROJECT_DIR$/src/Entities/Bground.java" />
         <option value="$PROJECT_DIR$/src/Entities/Player.java" />
         <option value="$PROJECT_DIR$/src/Entities/StaticFields.java" />
         <option value="$PROJECT_DIR$/src/Menu.java" />
+        <option value="$PROJECT_DIR$/src/Entities/CollisionHandler.java" />
         <option value="$PROJECT_DIR$/src/Board.java" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
       </list>
     </option>
   </component>
@@ -129,7 +156,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="y" value="25" />
     <option name="width" value="1440" />
     <option name="height" value="875" />
@@ -154,37 +181,38 @@
             <path>
               <item name="bialjam18" type="b2602c69:ProjectViewProjectNode" />
               <item name="bialjam18" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bialjam18" type="b2602c69:ProjectViewProjectNode" />
               <item name="bialjam18" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="textures" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bialjam18" type="b2602c69:ProjectViewProjectNode" />
               <item name="bialjam18" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="textures" type="462c0819:PsiDirectoryNode" />
-              <item name="game_menu" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+              <item name="Malponoga_jar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bialjam18" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bialjam18" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="production" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bialjam18" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bialjam18" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="production" type="462c0819:PsiDirectoryNode" />
+              <item name="bialjam18" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bialjam18" type="b2602c69:ProjectViewProjectNode" />
               <item name="bialjam18" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bialjam18" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bialjam18" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Camera" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bialjam18" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bialjam18" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Entities" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -196,23 +224,24 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/jar/slick.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Lukas\IdeaProjects\bialjam18\res\sound\whistle" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
       <recent name="C:\Users\Lukas\IdeaProjects\bialjam18\res\sound\whistle" />
       <recent name="C:\Users\Lukas\IdeaProjects\bialjam18\res\textures\bonus" />
       <recent name="C:\Users\Lukas\IdeaProjects\bialjam18\res\textures\board" />
       <recent name="C:\Users\Lukas\IdeaProjects\bialjam18\res\textures\footballers" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Lukas\IdeaProjects\bialjam18\res\sound\whistle" />
     </key>
   </component>
   <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
@@ -1135,31 +1164,37 @@
       <option name="project" value="LOCAL" />
       <updated>1528616541213</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="last commit">
+      <created>1528633279743</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1528633279743</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60733000" />
+    <option name="totallyTimeSpent" value="64143000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="25" width="1373" height="875" extended-state="6" />
-    <editor active="true" />
+    <frame x="67" y="25" width="1299" height="743" extended-state="6" />
     <layout>
       <window_info anchor="right" id="Palette" order="9" />
       <window_info anchor="bottom" id="TODO" order="13" />
-      <window_info anchor="bottom" id="Messages" order="18" weight="0.3281046" />
+      <window_info anchor="bottom" id="Messages" order="18" weight="0.3270142" />
       <window_info anchor="right" id="Palette&#9;" order="13" />
       <window_info id="Image Layers" order="9" />
       <window_info anchor="right" id="Capture Analysis" order="10" />
       <window_info anchor="bottom" id="Event Log" order="17" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="14" />
       <window_info anchor="bottom" id="Database Changes" order="14" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="4" weight="0.3281046" />
+      <window_info anchor="bottom" id="Run" order="4" visible="true" weight="0.3965245" />
       <window_info anchor="bottom" id="Version Control" order="15" weight="0.32941177" />
       <window_info anchor="bottom" id="Terminal" order="16" />
       <window_info id="Capture Tool" order="10" />
       <window_info id="Designer" order="8" />
-      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.17188638" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.18167822" />
       <window_info anchor="right" id="Database" order="12" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32941177" />
       <window_info id="Structure" order="5" side_tool="true" weight="0.25" />
@@ -1209,29 +1244,10 @@
     <MESSAGE value="Minor update" />
     <MESSAGE value="Balanaga" />
     <MESSAGE value="result bar" />
-    <option name="LAST_COMMIT_MESSAGE" value="result bar" />
+    <MESSAGE value="last commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="last commit" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/res/textures/menu/background.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Menu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1116">
-          <caret line="89" column="20" selection-start-line="89" selection-start-column="20" selection-end-line="89" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-170">
-          <caret line="11" column="15" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/textures/board/football_pitch.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -1239,6 +1255,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="45" column="39" lean-forward="true" selection-start-line="45" selection-start-column="39" selection-end-line="45" selection-end-column="39" />
+          <folding>
+            <element signature="e#6227#6228#0" expanded="true" />
+            <element signature="e#6251#6252#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1319,6 +1339,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="52" column="45" selection-start-line="52" selection-start-column="45" selection-end-line="52" selection-end-column="45" />
+          <folding>
+            <element signature="e#6227#6228#0" expanded="true" />
+            <element signature="e#6251#6252#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1375,16 +1399,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/res/textures/menu/button_exit.png">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="30" column="9" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/textures/footballers/playerSpriteSheet.png">
       <provider selected="true" editor-type-id="images" />
@@ -1448,24 +1462,10 @@
     <entry file="file://$PROJECT_DIR$/res/textures/board/stadium.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entities/CollisionHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="26" column="38" selection-start-line="26" selection-start-column="38" selection-end-line="26" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Entities/Player.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
           <caret line="45" selection-start-line="45" selection-end-line="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entities/StaticFields.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -1479,10 +1479,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entities/CollisionHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="23" column="25" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Board.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="165" column="24" selection-start-line="165" selection-start-column="24" selection-end-line="165" selection-end-column="24" />
+        <state relative-caret-position="-1622">
+          <caret line="83" column="64" selection-start-line="83" selection-start-column="64" selection-end-line="83" selection-end-column="64" />
+          <folding>
+            <element signature="e#6227#6228#0" expanded="true" />
+            <element signature="e#6251#6252#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entities/StaticFields.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bialjam18.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/production/bialjam18/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/production/bialjam18/Main.class">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="30" column="9" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1492,10 +1533,12 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>bialjam18:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -1526,7 +1569,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>10</last-edited>
+          <last-edited>9.0</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1543,7 +1586,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

@@ -196,7 +196,6 @@ public class Player extends GameObject {
 
     @Override
     public void init(GameContainer gameContainer) throws SlickException {
-          // j r - j l -r r - r l - idle
 
         jumpRightSheet = new SpriteSheet(mainSheet.getSubImage(0,0,5 * CROPPER_SIZE_X, CROPPER_SIZE_Y),CROPPER_SIZE_X,CROPPER_SIZE_Y);
         jumpLeftSheet = new SpriteSheet(mainSheet.getSubImage(0,CROPPER_SIZE_Y,5 * CROPPER_SIZE_X, CROPPER_SIZE_Y),CROPPER_SIZE_X,CROPPER_SIZE_Y);
@@ -209,13 +208,6 @@ public class Player extends GameObject {
         walkLeft = new Animation(walkLeftSheet,duration);
         walkRight = new Animation(walkRightSheet,duration);
         idle = new Animation(idleSheet,duration);
-
-        /*
-        jumpRight.setPingPong(true);
-        jumpLeft.setPingPong(true);
-        walkRight.setPingPong(true);
-        walkLeft.setPingPong(true);
-*/
 
         currentAnimation = jumpRight;
         currentAnimation.start();
