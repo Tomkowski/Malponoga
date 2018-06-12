@@ -44,7 +44,7 @@ public class Menu extends BasicGameState {
     CollisionHandler collisionHandler4;
     CollisionHandler collisionHandler5;
 
-    int timer = 0;
+    int timer;
 
 
     Ball ball,ball1,ball2,ball3,ball4;
@@ -55,8 +55,8 @@ public class Menu extends BasicGameState {
     int mouseX;
     int mouseY;
 
-    int score_value = 1;
-    int time_value = 1;
+    int score_value;
+    int time_value ;
 
     boolean exit_flag = false;
     boolean play_flag = false;
@@ -71,6 +71,9 @@ public class Menu extends BasicGameState {
 
     @Override
     public void init(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
+        score_value = 1;
+        time_value = 1;
+        timer = 0;
 
         background = new Image("/res/textures/board/stadium.png");
         b_play = new Image("res/textures/menu/button_play.png");
@@ -140,7 +143,10 @@ public class Menu extends BasicGameState {
         collisionHandler5 = new CollisionHandler(new ArrayList<>(){{add(p1); add(p2); add(p3); add(p4); add(p5); add(p6);}},new Rectangle(0,0,0,0),new Rectangle(0,0,0,0),
                 new Line(0,0,0,0), new Line(0,0,0,0),ball);
 
-
+        Score.homePoints = 0;
+        Score.awayPoints = 0;
+        Score.maxTime = 1;
+        Score.maxPoints = 1;
 
     }
 

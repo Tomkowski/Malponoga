@@ -14,7 +14,7 @@ public class Main  extends StateBasedGame
         super(name);
         this.addState(new Menu());
         this.addState(new Board());
-
+        this.addState(new EndScreen());
     }
 
     @Override
@@ -30,8 +30,8 @@ public class Main  extends StateBasedGame
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-       // appgc.setTargetFrameRate(60);
-       // appgc.setShowFPS(true);
+        //appgc.setTargetFrameRate(60);
+        appgc.setShowFPS(false);
 
         DisplayMode[] modes = Display.getAvailableDisplayModes();
         int w_max = 0, h_max = 0;

@@ -12,30 +12,33 @@ import org.newdawn.slick.state.StateBasedGame;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.awt.Font;
 
 public class Board extends BasicGameState{
 
 
     Music spectators;
+    Sound whistle;
 
     Image background;
     Image net;
     Image bground;
     Image tv;
 
+
     int bgroundX;
     int bgroundY;
     int time;
 
     String timeString;
+
     List<GameObject> entities = new ArrayList<>();
 
-    Sound whistle;
     CollisionHandler collisionHandler;
 
 
     Camera camera;
-
+    TrueTypeFont scoreFont;
 
     Rectangle leftGoal;
     Rectangle rightGoal;
@@ -43,9 +46,7 @@ public class Board extends BasicGameState{
     Line leftBar;
     Line rightBar;
 
-    boolean leftWin = false;
-    boolean rightWin = false;
-    boolean draw = false;
+    static boolean endOfGame = false;
 
     int result;
 
@@ -89,6 +90,7 @@ public class Board extends BasicGameState{
 
         camera.focusOnEntity(entities.get(0));
 
+        time = 0;
     }
 
     @Override
@@ -108,11 +110,12 @@ public class Board extends BasicGameState{
         g.scale(1,1);
         g.drawImage(bground.getScaledCopy(1/StaticFields.cameraZoom), camera.camX, camera.camY);
         g.drawImage(tv.getScaledCopy(256,256).getScaledCopy(1/StaticFields.cameraZoom), camera.camX +gc.getWidth()/1.25f * (1/StaticFields.cameraZoom),camera.camY);
-        g.drawString(Score.homePoints + ":" + Score.awayPoints +"    " + timeString, camera.camX, camera.camY);
 
-        g.setColor(Color.orange);
-        g.draw(rightGoal);
 
+        //scoreFont = new TrueTypeFont(new Font("Helvetica", Font.PLAIN, 50), true);
+        //g.setFont(new TrueTypeFont(new Font("Helvetica", Font.PLAIN, 50), false));
+        g.drawString("HOME "+ Score.homePoints + " : " + Score.awayPoints + " AWAY", camera.camX + 10, camera.camY + 10);
+        g.drawString(timeString, camera.camX + gc.getWidth()/8.6f, camera.camY + 10);
 
     }
     @Override
@@ -145,6 +148,14 @@ public class Board extends BasicGameState{
 
         timeString = String.format("%02d:%02d", minutes, seconds);
 
+
+        checkEnd(minutes);
+
+            if (endOfGame){
+                endOfGame = false;
+                time = 0;
+                stateBasedGame.enterState(2);
+            }
 
     }}
 
@@ -188,9 +199,16 @@ public class Board extends BasicGameState{
 
 
 
-
     @Override
     public int getID() {
         return 1;
+    }
+
+    private void checkEnd(int minutes){
+
+        if (Score.homePoints == Score.maxPoints || Score.awayPoints == Score.maxPoints || Score.maxTime == minutes){
+            endOfGame = true;
+        }
+
     }
 }
